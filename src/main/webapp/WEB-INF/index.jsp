@@ -1,3 +1,4 @@
+<%@page import="com.liaojl.shop.url.UrlEnum"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -27,7 +28,6 @@
 <link href="<%=basePath%>/css/skin.css" rel="stylesheet" type="text/css" />
 <script src="<%=basePath%>/js/jquery.min.js"></script>
 <script src="<%=basePath%>/js/amazeui.min.js"></script>
-
 </head>
 
 <body>
@@ -147,13 +147,13 @@
 
 				<div class="am-container activity ">
 					<div class="shopTitle ">
-						<h4>活动</h4>
-						<h3>每期活动 优惠享不停</h3>
+						<h4>您身边的贷款禅师</h4>
+						<h3>带给您享不停的优惠活动</h3>
 					</div>
 					<div class="am-g am-g-fixed ">
-						<div class="am-u-sm-3 ">
-							<div class="icon-sale one "></div>
-							<h4>秒杀</h4>
+						<div class="am-u-sm-6 ">
+							<div class="icon-sale50 one "></div>
+							<h4>小叮当钱包</h4>
 							<div class="activityMain ">
 								<img src="<%=basePath%>/images/activity1.jpg "></img>
 							</div>
@@ -162,8 +162,8 @@
 							</div>
 						</div>
 
-						<div class="am-u-sm-3 ">
-							<div class="icon-sale two "></div>
+						<div class="am-u-sm-6 ">
+							<div class="icon-sale50 two "></div>
 							<h4>特惠</h4>
 							<div class="activityMain ">
 								<img src="<%=basePath%>/images/activity2.jpg "></img>
@@ -173,8 +173,8 @@
 							</div>
 						</div>
 
-						<div class="am-u-sm-3 ">
-							<div class="icon-sale three "></div>
+						<div class="am-u-sm-6 ">
+							<div class="icon-sale50 three "></div>
 							<h4>团购</h4>
 							<div class="activityMain ">
 								<img src="<%=basePath%>/images/activity3.jpg "></img>
@@ -184,8 +184,8 @@
 							</div>
 						</div>
 
-						<div class="am-u-sm-3 last ">
-							<div class="icon-sale "></div>
+						<div class="am-u-sm-6">
+							<div class="icon-sale50 "></div>
 							<h4>超值</h4>
 							<div class="activityMain ">
 								<img src="<%=basePath%>/images/activity.jpg "></img>
@@ -194,8 +194,8 @@
 								<h3>春节送礼优选</h3>
 							</div>
 						</div>
-						<div class="am-u-sm-3 last ">
-							<div class="icon-sale "></div>
+						<div class="am-u-sm-6  ">
+							<div class="icon-sale50 "></div>
 							<h4>超值</h4>
 							<div class="activityMain ">
 								<img src="<%=basePath%>/images/activity.jpg "></img>
@@ -204,8 +204,8 @@
 								<h3>春节送礼优选</h3>
 							</div>
 						</div>
-						<div class="am-u-sm-3 last ">
-							<div class="icon-sale "></div>
+						<div class="am-u-sm-6 last ">
+							<div class="icon-sale50 "></div>
 							<h4>超值</h4>
 							<div class="activityMain ">
 								<img src="<%=basePath%>/images/activity.jpg "></img>
@@ -214,8 +214,8 @@
 								<h3>春节送礼优选</h3>
 							</div>
 						</div>
-						<div class="am-u-sm-3 last ">
-							<div class="icon-sale "></div>
+						<div class="am-u-sm-6  ">
+							<div class="icon-sale50 "></div>
 							<h4>超值</h4>
 							<div class="activityMain ">
 								<img src="<%=basePath%>/images/activity.jpg "></img>
@@ -224,8 +224,8 @@
 								<h3>春节送礼优选</h3>
 							</div>
 						</div>
-						<div class="am-u-sm-3 last ">
-							<div class="icon-sale "></div>
+						<div class="am-u-sm-6">
+							<div class="icon-sale50 "></div>
 							<h4>超值</h4>
 							<div class="activityMain ">
 								<img src="<%=basePath%>/images/activity.jpg "></img>
@@ -267,10 +267,10 @@
 		<div class="navCir">
 			<li class="active"><a href="<%=basePath%>"><i
 					class="am-icon-bank "></i>我要借款 </a></li>
-			<li><a href="<%=basePath%>/home/sort.html"><i
+			<li><a href="<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>"><i
 					class="am-icon-star"></i>明星产品</a></li>
 
-			<li><a href="<%=basePath%>/artcleList.jsp"><i
+			<li><a href="<%=basePath%>/<%=UrlEnum.ARTICLE.getDesc()%>"><i
 					class="am-icon-money"></i>理财资讯</a></li>
 		</div>
 
@@ -284,19 +284,22 @@
 						</div>
 
 					</div>
-					<div id="shopCart " class="item am-icon-bank ">
-						<a href="# "> <span class="message "></span>
+					<div id="shopCart " class="item am-icon-bank "
+						onclick="window.location.href='<%=basePath%>';">
+						<a> <span class="message "></span>
 						</a>
 						<p>首页</p>
 					</div>
-					<div id="shopCart " class="item ">
-						<a href="# "> <span class="message "></span>
+					<div id="shopCart " class="item "
+						onclick="window.location.href='<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>';">
+						<a> <span class="message "></span>
 						</a>
 						<p>明星产品</p>
 						<%--<p class="cart_num ">0</p> --%>
 					</div>
-					<div id="shopCart " class="item ">
-						<a href="# "> <span class="message "></span>
+					<div id="shopCart " class="item "
+						onclick="window.location.href='<%=basePath%>/<%=UrlEnum.ARTICLE.getDesc()%>';">
+						<a> <span class="message "></span>
 						</a>
 						<p>理财资讯</p>
 					</div>

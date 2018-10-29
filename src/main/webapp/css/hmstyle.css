@@ -81,6 +81,10 @@ text-align: center;float:none}
 .activity .icon-sale.two{border-top-color: #b48c66;}
 .activity .icon-sale.three{border-top-color: #7fb113;}
 .activity .am-g h4{position: absolute;color: #fff;top:5px;left: 2px;}
+.activity .icon-sale50{position: absolute; width: 0;height: 0;border-top: 50px solid #0087e5;border-right: 90px solid transparent;}
+.activity .icon-sale50.one{border-top-color: #9b0d5f;}
+.activity .icon-sale50.two{border-top-color: #b48c66;}
+.activity .icon-sale50.three{border-top-color: #7fb113;}
 
 
 /*第二套各类活动*/
@@ -251,6 +255,7 @@ text-align: center;float:none}
 .activity {position: relative;}
 .activity .info{text-align:center;position: absolute;left:5%;width:90%;bottom:5px ;background:#eee ;padding:5px ;}
 .activity .icon-sale{border-top: 60px solid #0087e5;border-right: 60px solid transparent;}
+.activity .icon-sale50{border-top: 120px solid #0087e5;border-right: 180px solid transparent;}
 .activity .am-g h4{position: absolute;color: #fff;top:10px;left: 5px;}
 
 /*第二套各类活动*/
