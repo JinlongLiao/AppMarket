@@ -20,165 +20,245 @@
 <link href="<%=basePath%>/css/sortstyle.css" rel="stylesheet"
 	type="text/css" />
 <script src="<%=basePath%>/js/jquery.min.js"></script>
+<style>
+#nav {
+	margin-top: 0px;
+}
+
+.brand-side {
+	position: relative;
+	margin-top: 0px;
+	border-top: 0px solid #eae9e9;
+	padding-top: 0px;
+}
+
+.sort-side .dl-sort {
+	float: left;
+	width: 100%;
+	font-size: 16px;
+}
+
+.sort-side dd {
+	float: left;
+	padding: 1%;
+	width: 25%;
+}
+
+.sort-side dd a {
+	line-height: 20px;
+	padding: 10px;
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+}
+
+.sort-side dt {
+	margin-top: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	width: 100%;
+	color: #db3e54;
+	text-align: center;
+	padding: 10px;
+	-webkit-box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+	box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.08);
+}
+</style>
 </head>
 
 <body>
-	<!--悬浮搜索框-->
-
-	<div class="nav white">
-		<div class="logo">
-			<img src="<%=basePath%>/images/logo.png" />
-		</div>
-		<div class="logoBig">
-			<li><img src="<%=basePath%>/images/logobig.png" /></li>
-		</div>
-
-		<div class="search-bar pr">
-			<a name="index_none_header_sysc" href="#"></a>
-			<form>
-				<input id="searchInput" name="index_none_header_sysc" type="text"
-					placeholder="搜索" autocomplete="off"> <input
-					id="ai-topsearch" class="submit am-btn" value="搜索" index="1"
-					type="submit">
-			</form>
-		</div>
-	</div>
-
-	<div class="clear"></div>
-	</div>
-
-
-
 	<!--主体-->
 
 	<div id="nav" class="navfull">
 		<div class="area clearfix">
-			<div class="category-content" id="guide_2">
-				<div class="long-title">
-					<span class="all-goods">全部分类</span><span id="meauBack"><a
-						href="home.html">返回</a></span>
-				</div>
-				<div class="category">
-					<ul class="category-list" id="js_climit_li">
-						<li></li>
-						<li class="appliance js_toggle relative selected">
-							<div class="category-info">
-								<h3 class="category-name b-category-name">
-									<i><img src="<%=basePath%>/images/cookies.png"></i><a
-										class="ml-22" title="饼干、膨化">饼干/膨化</a>
-								</h3>
-								<em>&gt;</em>
-							</div>
-							<div class="menu-item menu-in top">
-								<div class="area-in">
-									<div class="area-bg">
-										<div class="menu-srot">
-											<div class="brand-side">
-												<dl class="dl-sort">
-													<dt>
-														<span>为您推荐</span>
-													</dt>
-													<img src="<%=basePath%>/images/TJ.jpg">
-												</dl>
-											</div>
-											<div class="sort-side">
-												<dl class="dl-sort">
-													<dt>
-														<span title="饼干">饼干</span>
-													</dt>
-													<dd>
-														<a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a>
-													</dd>
-													<dd>
-														<a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a>
-													</dd>
-													<dd>
-														<a title="瑞士卷" href="#"><span>瑞士卷</span></a>
-													</dd>
-													<dd>
-														<a title="软面包" href="#"><span>软面包</span></a>
-													</dd>
-													<dd>
-														<a title="马卡龙" href="#"><span>马卡龙</span></a>
-													</dd>
-												</dl>
-												<dl class="dl-sort">
-													<dt>
-														<span title="薯片">薯片</span>
-													</dt>
-													<dd>
-														<a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a>
-													</dd>
-													<dd>
-														<a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a>
-													</dd>
-													<dd>
-														<a title="瑞士卷" href="#"><span>瑞士卷</span></a>
-													</dd>
-													<dd>
-														<a title="软面包" href="#"><span>软面包</span></a>
-													</dd>
-													<dd>
-														<a title="马卡龙" href="#"><span>马卡龙</span></a>
-													</dd>
-													<dd>
-														<a title="千层饼" href="#"><span>千层饼</span></a>
-													</dd>
-													<dd>
-														<a title="甜甜圈" href="#"><span>甜甜圈</span></a>
-													</dd>
-													<dd>
-														<a title="蒸三明治" href="#"><span>蒸三明治</span></a>
-													</dd>
-													<dd>
-														<a title="铜锣烧" href="#"><span>铜锣烧</span></a>
-													</dd>
-												</dl>
-												<dl class="dl-sort">
-													<dt>
-														<span title="蛋糕">虾条</span>
-													</dt>
-													<dd>
-														<a title="蒸蛋糕" href="#"><span>蒸蛋糕</span></a>
-													</dd>
-													<dd>
-														<a title="脱水蛋糕" href="#"><span>脱水蛋糕</span></a>
-													</dd>
-													<dd>
-														<a title="瑞士卷" href="#"><span>瑞士卷</span></a>
-													</dd>
-													<dd>
-														<a title="软面包" href="#"><span>软面包</span></a>
-													</dd>
-													<dd>
-														<a title="马卡龙" href="#"><span>马卡龙</span></a>
-													</dd>
-													<dd>
-														<a title="千层饼" href="#"><span>千层饼</span></a>
-													</dd>
-													<dd>
-														<a title="甜甜圈" href="#"><span>甜甜圈</span></a>
-													</dd>
-													<dd>
-														<a title="蒸三明治" href="#"><span>蒸三明治</span></a>
-													</dd>
-													<dd>
-														<a title="铜锣烧" href="#"><span>铜锣烧</span></a>
-													</dd>
-												</dl>
-											</div>
-
-										</div>
-									</div>
+			<div class="category">
+				<div class="menu-item menu-in top" style="display: flex;">
+					<div class="area-in">
+						<div class="area-bg">
+							<div class="menu-srot">
+								<div class="brand-side">
+									<dl class="dl-sort">
+										<img src="<%=basePath%>/images/abx.png">
+									</dl>
 								</div>
-							</div> <b class="arrow"></b>
-						</li>
-					</ul>
-				</div>
-			</div>
+								<div class="sort-side">
+									<dl class="dl-sort">
+										<dt>
+											<span title="饼干">快速下款</span>
+										</dt>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+									</dl>
+									<dl class="dl-sort">
+										<dt>
+											<span title="饼干">不限金额</span>
+										</dt>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+									</dl>
+									<dl class="dl-sort">
+										<dt>
+											<span title="饼干">饼干</span>
+										</dt>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+										<dd>
+											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+												href="#"><span>
+													<p>有米</p>
+													<p>1000-10000</p>
+													<p>
+														<span>133364</span>人申请
+													</p>
+											</span></a>
+										</dd>
+									</dl>
+								</div>
 
+							</div>
+						</div>
+					</div>
+				</div>
+				<b class="arrow"></b>
+			</div>
 		</div>
+
 	</div>
+
 	<script type="text/javascript">
 		$(document).ready(
 				function() {
@@ -192,14 +272,13 @@
 	<div class="clear"></div>
 	<!--引导 -->
 	<div class="navCir">
-		<li><a href="<%=basePath%>"><i class="am-icon-bank "></i>我要借款
-		</a></li>
-		<li class="active"><a
-			href="<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>"><i
+		<li class="active"><a href="<%=basePath%>"><i
+				class="am-icon-bank "></i>我要借款 </a></li>
+		<li><a href="<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>"><i
 				class="am-icon-star"></i>明星产品</a></li>
 
-		<li><a href="<%=basePath%>/<%=UrlEnum.ARTICLE.getDesc()%>"><i
-				class="am-icon-money"></i>理财资讯</a></li>
+		<%-- <li><a href="<%=basePath%>/<%=UrlEnum.ARTICLE.getDesc()%>"><i
+					class="am-icon-money"></i>理财资讯</a></li> --%>
 	</div>
 	<!--菜单 -->
 	<div class=tip>
@@ -211,25 +290,26 @@
 					</div>
 
 				</div>
-				<div id="shopCart " class="item am-icon-bank "
+				<div id="shopCart " class="item"
 					onclick="window.location.href='<%=basePath%>';">
 					<a> <span class="message "></span>
 					</a>
-					<p>首页</p>
+					<p class='am-icon-bank'>首页</p>
 				</div>
 				<div id="shopCart " class="item "
 					onclick="window.location.href='<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>';">
 					<a> <span class="message "></span>
 					</a>
-					<p>明星产品</p>
+					<p class='am-icon-star'>明星产品</p>
 					<%--<p class="cart_num ">0</p> --%>
 				</div>
-				<div id="shopCart " class="item "
+				<%-- 				<div id="shopCart " class="item "
 					onclick="window.location.href='<%=basePath%>/<%=UrlEnum.ARTICLE.getDesc()%>';">
 					<a> <span class="message "></span>
 					</a>
-					<p>理财资讯</p>
-				</div>
+					<p class='am-icon-money'>理财资讯</p>
+				</div> --%>
+
 
 				<div class="quick_toggle ">
 					<li class="qtitem "><a href="# "><span class="kfzx "></span></a>

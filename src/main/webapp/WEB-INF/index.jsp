@@ -28,21 +28,47 @@
 <link href="<%=basePath%>/css/skin.css" rel="stylesheet" type="text/css" />
 <script src="<%=basePath%>/js/jquery.min.js"></script>
 <script src="<%=basePath%>/js/amazeui.min.js"></script>
+<style>
+.activity .info {
+	margin-top: 5px;
+	text-align: center;
+}
+
+.banner, .bannerTwo {
+	margin-top: 0px;
+}
+
+[class*="am-u-"] {
+	padding: 5%;
+	float: left;
+}
+
+[class*="am-u-"]+[class*="am-u-"]:last-child {
+	float: left;
+}
+
+.activity .am-g h4 {
+	position: absolute;
+	color: #fff;
+	left: 5%;
+}
+</style>
 </head>
 
 <body>
-	<div class="hmtop">
-		<!--顶部导航条 -->
-		<div class="am-container header">
+	<!-- 	<div class="hmtop">
+ -->
+	<!--顶部导航条 -->
+	<!-- 		<div class="am-container header">
 			<ul class="message-l">
 				<div class="topMessage">
 					<div class="menu-hd"></div>
 				</div>
 			</ul>
-		</div>
+		</div> -->
 
-		<!--悬浮搜索框-->
-
+	<!--悬浮搜索框-->
+	<%-- 
 		<div class="nav white">
 			<div class="logo">
 				<img src="<%=basePath%>/images/logo.png" />
@@ -63,25 +89,24 @@
 		</div>
 
 		<div class="clear"></div>
-	</div>
+	</div> --%>
 	<div class="banner">
 		<!--轮播 -->
 		<div class="am-slider am-slider-default scoll" data-am-flexslider
 			id="demo-slider-0">
 			<ul class="am-slides">
 				<li class="banner1"><a href="introduction.html"><img
-						src="<%=basePath%>/images/ad1.jpg" /></a></li>
+						src="<%=basePath%>/images/gao.png" /></a></li>
 				<li class="banner2"><a><img
-						src="<%=basePath%>/images/ad2.jpg" /></a></li>
+						src="<%=basePath%>/images/abx.png" /></a></li>
 				<li class="banner3"><a><img
-						src="<%=basePath%>/images/ad3.jpg" /></a></li>
+						src="<%=basePath%>/images/gao.png" /></a></li>
 				<li class="banner4"><a><img
-						src="<%=basePath%>/images/ad4.jpg" /></a></li>
+						src="<%=basePath%>/images/abx.png" /></a></li>
 
 			</ul>
 		</div>
 		<div class="clear"></div>
-	</div>
 	<div class="shopNav">
 		<div class="slideall">
 			<!--轮播-->
@@ -147,94 +172,97 @@
 
 				<div class="am-container activity ">
 					<div class="shopTitle ">
-						<h4>您身边的贷款禅师</h4>
+						<h4>您身边的贷款便利</h4>
 						<h3>带给您享不停的优惠活动</h3>
 					</div>
 					<div class="am-g am-g-fixed ">
-						<div class="am-u-sm-6 ">
-							<div class="icon-sale50 one "></div>
-							<h4>小叮当钱包</h4>
+						<div class="am-u-sm-3 ">
+							<div class="icon-sale one "></div>
+							<h4>有米</h4>
 							<div class="activityMain ">
-								<img src="<%=basePath%>/images/activity1.jpg "></img>
+								<img src="<%=basePath%>/images/ym.png "></img>
 							</div>
 							<div class="info ">
-								<h3>春节送礼优选</h3>
+								<h3>有米</h3>
+								<p>1000-10000</p>
+								<p>
+									<span>133364</span>人申请
+								</p>
 							</div>
 						</div>
 
-						<div class="am-u-sm-6 ">
-							<div class="icon-sale50 two "></div>
-							<h4>特惠</h4>
+						<div class="am-u-sm-3 ">
+							<div class="icon-sale two "></div>
+							<h4>折上购</h4>
 							<div class="activityMain ">
-								<img src="<%=basePath%>/images/activity2.jpg "></img>
+								<img src="<%=basePath%>/images/zsg.png"></img>
 							</div>
 							<div class="info ">
-								<h3>春节送礼优选</h3>
+								<p>折上购</p>
+								<p>1000-10000</p>
+								<p>
+									<span>133530</span>人申请
+								</p>
 							</div>
 						</div>
 
-						<div class="am-u-sm-6 ">
-							<div class="icon-sale50 three "></div>
-							<h4>团购</h4>
+						<div class="am-u-sm-3 ">
+							<div class="icon-sale three "></div>
+							<h4>金速达</h4>
 							<div class="activityMain ">
-								<img src="<%=basePath%>/images/activity3.jpg "></img>
+								<img src="<%=basePath%>/images/jsd.png"></img>
 							</div>
 							<div class="info ">
-								<h3>春节送礼优选</h3>
+								<p>金速达</p>
+								<p>1000-10000</p>
+								<p>
+									<span>144177</span>人申请
+								</p>
 							</div>
 						</div>
 
-						<div class="am-u-sm-6">
-							<div class="icon-sale50 "></div>
-							<h4>超值</h4>
+						<div class="am-u-sm-3">
+							<div class="icon-sale "></div>
+							<h4>香蕉付</h4>
 							<div class="activityMain ">
-								<img src="<%=basePath%>/images/activity.jpg "></img>
+								<img src="<%=basePath%>/images/xjf.png"></img>
 							</div>
 							<div class="info ">
-								<h3>春节送礼优选</h3>
+								<p>香蕉付</p>
+								<p>1000-10000</p>
+								<p>
+									<span>126176</span>人申请
+								</p>
 							</div>
 						</div>
-						<div class="am-u-sm-6  ">
-							<div class="icon-sale50 "></div>
-							<h4>超值</h4>
+						<div class="am-u-sm-3  ">
+							<div class="icon-sale "></div>
+							<h4>如意猪</h4>
 							<div class="activityMain ">
-								<img src="<%=basePath%>/images/activity.jpg "></img>
+								<img src="<%=basePath%>/images/ryz.png"></img>
 							</div>
 							<div class="info ">
-								<h3>春节送礼优选</h3>
+								<p>如意猪</p>
+								<p>1000-10000</p>
+								<p>
+									<span>133538</span>人申请
+								</p>
 							</div>
 						</div>
-						<div class="am-u-sm-6 last ">
-							<div class="icon-sale50 "></div>
-							<h4>超值</h4>
+						<div class="am-u-sm-3 ">
+							<div class="icon-sale three "></div>
+							<h4>我想贷</h4>
 							<div class="activityMain ">
-								<img src="<%=basePath%>/images/activity.jpg "></img>
+								<img src="<%=basePath%>/images/wxd.png"></img>
 							</div>
 							<div class="info ">
-								<h3>春节送礼优选</h3>
+								<p>我想贷</p>
+								<p>1000-10000</p>
+								<p>
+									<span>132710</span>人申请
+								</p>
 							</div>
 						</div>
-						<div class="am-u-sm-6  ">
-							<div class="icon-sale50 "></div>
-							<h4>超值</h4>
-							<div class="activityMain ">
-								<img src="<%=basePath%>/images/activity.jpg "></img>
-							</div>
-							<div class="info ">
-								<h3>春节送礼优选</h3>
-							</div>
-						</div>
-						<div class="am-u-sm-6">
-							<div class="icon-sale50 "></div>
-							<h4>超值</h4>
-							<div class="activityMain ">
-								<img src="<%=basePath%>/images/activity.jpg "></img>
-							</div>
-							<div class="info ">
-								<h3>春节送礼优选</h3>
-							</div>
-						</div>
-
 					</div>
 				</div>
 				<div class="clear "></div>
@@ -248,15 +276,15 @@
 
 				<div class="footer ">
 					<div class="footer-hd ">
-						<p>
+						<!-- 				<p>
 							<a href="# ">恒望科技</a> <b>|</b> <a href="# ">商城首页</a> <b>|</b> <a
 								href="# ">支付宝</a> <b>|</b> <a href="# ">物流</a>
-						</p>
+						</p> -->
 					</div>
 					<div class="footer-bd ">
 						<p>
-							<a href="# ">关于恒望</a> <a href="# ">合作伙伴</a> <a href="# ">联系我们</a>
-							<a href="# ">网站地图</a> <em>© 2015-2025 Hengwang.com 版权所有</em>
+							<!-- <a href="# ">关于恒望</a> <a href="# ">合作伙伴</a> <a href="# ">联系我们</a>
+							<a href="# ">网站地图</a> <em>© 2015-2025 Hengwang.com 版权所有</em> -->
 						</p>
 					</div>
 				</div>
@@ -270,8 +298,8 @@
 			<li><a href="<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>"><i
 					class="am-icon-star"></i>明星产品</a></li>
 
-			<li><a href="<%=basePath%>/<%=UrlEnum.ARTICLE.getDesc()%>"><i
-					class="am-icon-money"></i>理财资讯</a></li>
+			<%-- <li><a href="<%=basePath%>/<%=UrlEnum.ARTICLE.getDesc()%>"><i
+					class="am-icon-money"></i>理财资讯</a></li> --%>
 		</div>
 
 		<!--菜单 -->
@@ -284,25 +312,25 @@
 						</div>
 
 					</div>
-					<div id="shopCart " class="item am-icon-bank "
+					<div id="shopCart " class="item"
 						onclick="window.location.href='<%=basePath%>';">
 						<a> <span class="message "></span>
 						</a>
-						<p>首页</p>
+						<p class='am-icon-bank'>首页</p>
 					</div>
 					<div id="shopCart " class="item "
 						onclick="window.location.href='<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>';">
 						<a> <span class="message "></span>
 						</a>
-						<p>明星产品</p>
+						<p class='am-icon-star'>明星产品</p>
 						<%--<p class="cart_num ">0</p> --%>
 					</div>
-					<div id="shopCart " class="item "
+					<%-- <div id="shopCart " class="item "
 						onclick="window.location.href='<%=basePath%>/<%=UrlEnum.ARTICLE.getDesc()%>';">
 						<a> <span class="message "></span>
 						</a>
-						<p>理财资讯</p>
-					</div>
+						<p class='am-icon-money'>理财资讯</p>
+					</div> --%>
 
 					<div class="quick_toggle ">
 						<li class="qtitem "><a href="# "><span class="kfzx "></span></a>

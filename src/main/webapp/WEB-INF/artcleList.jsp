@@ -375,25 +375,26 @@
 					</div>
 
 				</div>
-				<div id="shopCart " class="item am-icon-bank "
+				<div id="shopCart " class="item"
 					onclick="window.location.href='<%=basePath%>';">
 					<a> <span class="message "></span>
 					</a>
-					<p>首页</p>
+					<p class='am-icon-bank'>首页</p>
 				</div>
 				<div id="shopCart " class="item "
 					onclick="window.location.href='<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>';">
 					<a> <span class="message "></span>
 					</a>
-					<p>明星产品</p>
+					<p class='am-icon-star'>明星产品</p>
 					<%--<p class="cart_num ">0</p> --%>
 				</div>
 				<div id="shopCart " class="item "
 					onclick="window.location.href='<%=basePath%>/<%=UrlEnum.ARTICLE.getDesc()%>';">
 					<a> <span class="message "></span>
 					</a>
-					<p>理财资讯</p>
+					<p class='am-icon-money'>理财资讯</p>
 				</div>
+
 
 				<div class="quick_toggle ">
 					<li class="qtitem "><a href="# "><span class="kfzx "></span></a>

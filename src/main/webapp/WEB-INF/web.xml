@@ -4,6 +4,26 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
+	<filter>
+		<filter-name>SessionFilter</filter-name>
+		<display-name>SessionFilter</display-name>
+		<description>会话检测</description>
+		<filter-class>com.liaojl.shop.servlet.SessionFilter</filter-class>
+	</filter>
+	<filter>
+		<filter-name>UserSession</filter-name>
+		<display-name>UserSession</display-name>
+		<description></description>
+		<filter-class>com.liaojl.shop.servlet.UserSession</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
+		<url-pattern>/admin/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UserSession</filter-name>
+		<url-pattern>/index/*</url-pattern>
+	</filter-mapping>
 	<servlet>
 		<servlet-name>Test</servlet-name>
 		<display-name>Test</display-name>
@@ -16,12 +36,32 @@
 		<description></description>
 		<servlet-class>com.liaojl.shop.servlet.Types</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<display-name>AdminServlet</display-name>
+		<description></description>
+		<servlet-class>com.liaojl.shop.servlet.AdminServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Index</servlet-name>
+		<display-name>Index</display-name>
+		<description></description>
+		<servlet-class>com.liaojl.shop.servlet.Index</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Test</servlet-name>
 		<url-pattern>/test.jsp</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>Types</servlet-name>
-		<url-pattern>/types</url-pattern>
+		<url-pattern>/index/types</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Index</servlet-name>
+		<url-pattern>/index</url-pattern>
 	</servlet-mapping>
 </web-app>

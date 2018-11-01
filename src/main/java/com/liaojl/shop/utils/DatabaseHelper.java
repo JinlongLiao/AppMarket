@@ -153,10 +153,10 @@ public class DatabaseHelper {
 		if (conn != null) {
 			try {
 				conn.close();
-				logger.info("close connection success");
+				logger.debug("close connection success");
 			} catch (SQLException e) {
 				// LOGGER.error("close connection failure", e);
-				logger.info("close connection failure:" + e);
+				logger.error("close connection failure:" + e);
 			} finally {
 				CONNECTION_HOLDER.remove();
 			}

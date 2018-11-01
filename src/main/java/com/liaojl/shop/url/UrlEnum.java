@@ -9,11 +9,17 @@ package com.liaojl.shop.url;
  */
 public enum UrlEnum {
 //	首页
-	INDEX("index", "/WEB-INF/index.jsp"),
+	INDEX("index", "/index"),
 //	分类
-	TYPE("types", "/WEB-INF/type.jsp"),
+	TYPE("index/types", "/WEB-INF/type.jsp"),
 //	文章分类
-	ARTICLE("articles", "/WEB-INF/artcleList.jsp");
+	ARTICLE("articles", "/WEB-INF/artcleList.jsp"),
+//	管理员
+	ADMIN("admin", "/WEB-INF/admin/login.jsp"),
+//	管理员主界面
+	ADMINMAIN("adminMain", "/WEB-INF/admin/adminMain.jsp"),
+//	用户主界面
+	USERMAIN("index", "/WEB-INF/index.jsp");
 
 	private UrlEnum(String desc, String url) {
 		this.url = url;
