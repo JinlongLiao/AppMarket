@@ -691,7 +691,7 @@ filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#f8c375',endCo
 	   
 	   
 @media only screen and (min-width: 1260px) {
-.slideall{max-width: 1200px;margin:0px auto ;height:485px;}
+.slideall{max-width: 1200px;margin:0px auto ;height:445px;}
 .am-container { padding-left:0rem;padding-right:0rem;max-width: 1200px;}
 .am-g-fixed{max-width:1200px}
 .flood li {width: 16.66667%;}
