@@ -48,6 +48,30 @@
 		<description></description>
 		<servlet-class>com.liaojl.shop.servlet.Index</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>PptConfig</servlet-name>
+		<display-name>PptConfig</display-name>
+		<description></description>
+		<servlet-class>com.liaojl.shop.servlet.admin.PptConfig</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AllTypes</servlet-name>
+		<display-name>AllTypes</display-name>
+		<description></description>
+		<servlet-class>com.liaojl.shop.servlet.admin.AllTypes</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>Produces</servlet-name>
+		<display-name>Produces</display-name>
+		<description></description>
+		<servlet-class>com.liaojl.shop.servlet.admin.Produces</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>PptImgUpload</servlet-name>
+		<display-name>PptImgUpload</display-name>
+		<description></description>
+		<servlet-class>com.liaojl.shop.servlet.admin.PptImgUpload</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>Test</servlet-name>
 		<url-pattern>/test.jsp</url-pattern>
@@ -63,5 +87,21 @@
 	<servlet-mapping>
 		<servlet-name>Index</servlet-name>
 		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PptConfig</servlet-name>
+		<url-pattern>/admin/pptconfig</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AllTypes</servlet-name>
+		<url-pattern>/admin/alltypes</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>Produces</servlet-name>
+		<url-pattern>/admin/product</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>PptImgUpload</servlet-name>
+		<url-pattern>/admin/pptupload</url-pattern>
 	</servlet-mapping>
 </web-app>

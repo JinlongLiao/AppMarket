@@ -45,12 +45,12 @@ public class SessionFilter implements Filter {
 		// place your code here
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		HttpSession session = httpServletRequest.getSession();
-		if (null == session.getAttribute(Constant.SESSION.getName())) {
-			httpServletRequest.getRequestDispatcher(UrlEnum.ADMIN.getUrl()).forward(request, response);
-		} else {
+//		if (null == session.getAttribute(Constant.SESSION.getName())) {
+//			httpServletRequest.getRequestDispatcher(UrlEnum.ADMIN.getUrl()).forward(request, response);
+//		} else {
 			// pass the request along the filter chain
 			chain.doFilter(request, response);
-		}
+//		}
 	}
 
 	/**
