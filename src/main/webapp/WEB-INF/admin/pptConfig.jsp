@@ -1,4 +1,5 @@
 <%@page import="com.liaojl.shop.url.UrlEnum"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -36,38 +37,17 @@
 			<h1 class="page-header">主页换灯片展示</h1>
 
 			<div class="row placeholders">
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<img
-						src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-						width="200" height="200" class="img-responsive"
-						alt="Generic placeholder thumbnail">
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<img
-						src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-						width="200" height="200" class="img-responsive"
-						alt="Generic placeholder thumbnail">
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<img
-						src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-						width="200" height="200" class="img-responsive"
-						alt="Generic placeholder thumbnail">
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
-				<div class="col-xs-6 col-sm-3 placeholder">
-					<img
-						src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-						width="200" height="200" class="img-responsive"
-						alt="Generic placeholder thumbnail">
-					<h4>Label</h4>
-					<span class="text-muted">Something else</span>
-				</div>
+				<c:forEach items="${results}" var="item">
+					<div class="col-xs-6 col-sm-3 placeholder">
+						<img src="<%=basePath%>/upload/${item.GOODS_IMG}" width="200"
+							height="200" class="img-responsive"
+							alt="Generic placeholder thumbnail">
+						<h4>${item.GOODS_NAME}</h4>
+						<p style="color: red;">${item.GOODS_MIN_PRICE}至
+							${item.GOODS_MAX_PRICE}</p>
+						<span class="text-muted">${item.GOODS_DESC}</span>
+					</div>
+				</c:forEach>
 			</div>
 			<form class="form-horizontal" role="form" method="post"
 				enctype="multipart/form-data"
@@ -84,6 +64,17 @@
 					<div class="col-sm-10">
 						<input type="text" name='purl' class="form-control" id="lastname"
 							placeholder="请输入网址">
+					</div>
+
+				</div>
+				<div class="form-group">
+					<label for="lastname" class="col-sm-2 control-label">产品类型</label>
+					<div class="col-sm-10">
+						<select class="selectpicker" name="ptype">
+							<c:forEach items="${types}" var="item">
+								<option value="${item.TYPE_ID }">${item.TYPE_NAME }</option>
+							</c:forEach>
+						</select>
 					</div>
 
 				</div>

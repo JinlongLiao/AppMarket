@@ -16,7 +16,7 @@
 <meta name="author" content="">
 <link rel="icon" href="../../favicon.ico">
 
-<title>Starter Template for Bootstrap</title>
+<title>贷款超市</title>
 
 <!-- Bootstrap core CSS -->
 <link href="<%=basePath%>/css/bootstrap.min.css" rel="stylesheet">
@@ -77,6 +77,10 @@
 	src="<%=basePath%>/js/jquery-ui-1.10.4.custom.min.js"></script>
 <link rel="stylesheet"
 	href="<%=basePath%>/css/jquery-ui-1.10.4.custom.min.css" />
+<link rel="stylesheet" href="<%=basePath%>/css/bootstrap-select.min.css" />
+<script src="<%=basePath%>/js/bootstrap-select.js"
+	type="text/javascript"></script>
+<script src="<%=basePath%>/js/bootstrap-modal.js"></script>
 
 <body>
 

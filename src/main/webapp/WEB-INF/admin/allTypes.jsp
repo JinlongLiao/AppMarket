@@ -1,4 +1,5 @@
 <%@page import="com.liaojl.shop.url.UrlEnum"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -6,20 +7,20 @@
 			+ request.getContextPath();
 %>
 <jsp:include page="common.jsp"></jsp:include>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-sm-3 col-md-2 sidebar">
-				<ul class="nav nav-sidebar">
-					<li><a href="<%=basePath + UrlEnum.ADMINMAIN.getDesc()%>">浏览</a></li>
-					<li><a href="<%=basePath + UrlEnum.PPTCONFIG.getDesc()%>">主页换灯片设置
-					</a></li>
-					<li><a href="<%=basePath + UrlEnum.PRODUCT.getDesc()%>">所有商品
-					</a></li>
-					<li class="active"><a
-						href="<%=basePath + UrlEnum.TYPES.getDesc()%>">商品类型 <span
-							class="sr-only">(current)</span></a></li>
-				</ul>
-				<%-- 				<ul class="nav nav-sidebar">
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<ul class="nav nav-sidebar">
+				<li><a href="<%=basePath + UrlEnum.ADMINMAIN.getDesc()%>">浏览</a></li>
+				<li><a href="<%=basePath + UrlEnum.PPTCONFIG.getDesc()%>">主页换灯片设置
+				</a></li>
+				<li><a href="<%=basePath + UrlEnum.PRODUCT.getDesc()%>">所有商品
+				</a></li>
+				<li class="active"><a
+					href="<%=basePath + UrlEnum.TYPES.getDesc()%>">商品类型 <span
+						class="sr-only">(current)</span></a></li>
+			</ul>
+			<%-- 				<ul class="nav nav-sidebar">
 					<li><a href="">Nav item</a></li>
 					<li><a href="">Nav item again</a></li>
 					<li><a href="">One more nav</a></li>
@@ -31,174 +32,78 @@
 					<li><a href="">One more nav</a></li>
 					<li><a href="">Another nav item</a></li>
 				</ul> --%>
-			</div>
-			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-				<h1 class="page-header">主页换灯片展示</h1>
-
-				<div class="row placeholders">
-					<div class="col-xs-6 col-sm-3 placeholder">
-						<img
-							src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-							width="200" height="200" class="img-responsive"
-							alt="Generic placeholder thumbnail">
-						<h4>Label</h4>
-						<span class="text-muted">Something else</span>
-					</div>
-					<div class="col-xs-6 col-sm-3 placeholder">
-						<img
-							src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-							width="200" height="200" class="img-responsive"
-							alt="Generic placeholder thumbnail">
-						<h4>Label</h4>
-						<span class="text-muted">Something else</span>
-					</div>
-					<div class="col-xs-6 col-sm-3 placeholder">
-						<img
-							src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-							width="200" height="200" class="img-responsive"
-							alt="Generic placeholder thumbnail">
-						<h4>Label</h4>
-						<span class="text-muted">Something else</span>
-					</div>
-					<div class="col-xs-6 col-sm-3 placeholder">
-						<img
-							src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-							width="200" height="200" class="img-responsive"
-							alt="Generic placeholder thumbnail">
-						<h4>Label</h4>
-						<span class="text-muted">Something else</span>
-					</div>
+		</div>
+		<!-- /.modal -->
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<h1 class="page-header">产品展示</h1>
+			<div class="table-responsive">
+				<p>
+				<div class="form-group">
+					<label for="input">输入商品类型</label> <input type="text"
+						class="form-control" id="input" />
+					<p class="help-block">商品类型</p>
 				</div>
+				<button class="btn btn-primary btn-lg" data-toggle="modal"
+					data-target="#myModal"
+					style="text-align: right; float: right; margin-right: 0.7 rem"
+					onclick="addType()">添加</button>
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>序号</th>
+							<th>名称</th>
+							<th>可选操作</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach items="${results}" var="item" varStatus="status">
+							<tr>
+								<td>${status.index+1}</td>
+								<td>${item.TYPE_NAME}</td>
+								<td><td><a class="btn btn-info ">启用</a>&nbsp;<a
+									class="btn btn-primary">编辑</a>&nbsp;<a class="btn btn-danger">删除</a></td></td>
+							</tr>
+						</c:forEach>
 
-				<h2 class="sub-header">产品展示</h2>
-				<div class="table-responsive">
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>#</th>
-								<th>Header</th>
-								<th>Header</th>
-								<th>Header</th>
-								<th>Header</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>1,001</td>
-								<td>Lorem</td>
-								<td>ipsum</td>
-								<td>dolor</td>
-								<td>sit</td>
-							</tr>
-							<tr>
-								<td>1,002</td>
-								<td>amet</td>
-								<td>consectetur</td>
-								<td>adipiscing</td>
-								<td>elit</td>
-							</tr>
-							<tr>
-								<td>1,003</td>
-								<td>Integer</td>
-								<td>nec</td>
-								<td>odio</td>
-								<td>Praesent</td>
-							</tr>
-							<tr>
-								<td>1,003</td>
-								<td>libero</td>
-								<td>Sed</td>
-								<td>cursus</td>
-								<td>ante</td>
-							</tr>
-							<tr>
-								<td>1,004</td>
-								<td>dapibus</td>
-								<td>diam</td>
-								<td>Sed</td>
-								<td>nisi</td>
-							</tr>
-							<tr>
-								<td>1,005</td>
-								<td>Nulla</td>
-								<td>quis</td>
-								<td>sem</td>
-								<td>at</td>
-							</tr>
-							<tr>
-								<td>1,006</td>
-								<td>nibh</td>
-								<td>elementum</td>
-								<td>imperdiet</td>
-								<td>Duis</td>
-							</tr>
-							<tr>
-								<td>1,007</td>
-								<td>sagittis</td>
-								<td>ipsum</td>
-								<td>Praesent</td>
-								<td>mauris</td>
-							</tr>
-							<tr>
-								<td>1,008</td>
-								<td>Fusce</td>
-								<td>nec</td>
-								<td>tellus</td>
-								<td>sed</td>
-							</tr>
-							<tr>
-								<td>1,009</td>
-								<td>augue</td>
-								<td>semper</td>
-								<td>porta</td>
-								<td>Mauris</td>
-							</tr>
-							<tr>
-								<td>1,010</td>
-								<td>massa</td>
-								<td>Vestibulum</td>
-								<td>lacinia</td>
-								<td>arcu</td>
-							</tr>
-							<tr>
-								<td>1,011</td>
-								<td>eget</td>
-								<td>nulla</td>
-								<td>Class</td>
-								<td>aptent</td>
-							</tr>
-							<tr>
-								<td>1,012</td>
-								<td>taciti</td>
-								<td>sociosqu</td>
-								<td>ad</td>
-								<td>litora</td>
-							</tr>
-							<tr>
-								<td>1,013</td>
-								<td>torquent</td>
-								<td>per</td>
-								<td>conubia</td>
-								<td>nostra</td>
-							</tr>
-							<tr>
-								<td>1,014</td>
-								<td>per</td>
-								<td>inceptos</td>
-								<td>himenaeos</td>
-								<td>Curabitur</td>
-							</tr>
-							<tr>
-								<td>1,015</td>
-								<td>sodales</td>
-								<td>ligula</td>
-								<td>in</td>
-								<td>libero</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
+</div>
 </body>
+<script>
+var flag=true;
+	//执行操作
+	function addType() {
+		if(flag){
+			flag=false;
+		jQuery.ajax({
+			url : '<%=basePath%>/admin/addTypes',
+						type : 'POST',
+						dataType : 'json',
+						data : {
+							type_name : $('#input').val()
+						},
+						complete : function(xhr, textStatus) {
+							//called when complete
+
+						},
+						success : function(data, textStatus, xhr) {
+							//called when successful
+							if (data.result) {
+								alert("添加成功");
+								location.href ='<%= basePath+UrlEnum.TYPES.getDesc() %>';
+							} else {
+								alert("添加失败：" + data.desc);
+							}
+						},
+						error : function(xhr, textStatus, errorThrown) {
+							//called when there is an error
+						}
+					});
+		} else {
+			return;
+		}
+	}
+</script>

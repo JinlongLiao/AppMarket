@@ -9,13 +9,13 @@ package com.liaojl.shop.url;
  */
 public enum UrlEnum {
 //	首页
-	INDEX("index", "/index"),
+	INDEX("/index", "/index"),
 //	分类
-	TYPE("index.types", "/WEB-INF/type.jsp"),
+	TYPE("/index/types", "/WEB-INF/type.jsp"),
 //	文章分类
-	ARTICLE("articles", "/WEB-INF/artcleList.jsp"),
+	ARTICLE("/articles", "/WEB-INF/artcleList.jsp"),
 //	管理员
-	ADMIN("admin", "/WEB-INF/admin/login.jsp"),
+	ADMIN("/admin", "/WEB-INF/admin/login.jsp"),
 //	管理员主界面
 	ADMINMAIN("/admin", "/WEB-INF/admin/adminMain.jsp"),
 //	用户主界面
@@ -27,7 +27,9 @@ public enum UrlEnum {
 	// TYPES
 	TYPES("/admin/alltypes", "/WEB-INF/admin/allTypes.jsp"),
 //	PPT 上传
-	PPTIMGUPLOAD("/WEB-INF/admin/pptConfig.jsp", "/admin/pptupload");
+	PPTIMGUPLOAD("/WEB-INF/admin/pptConfig.jsp", "/admin/pptupload"),
+	// PRO 上传
+	PROIMGUPLOAD("/admin/product", "/admin/proupload");
 
 	private UrlEnum(String desc, String url) {
 		this.url = url;
