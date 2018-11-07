@@ -29,7 +29,9 @@ public enum UrlEnum {
 //	PPT 上传
 	PPTIMGUPLOAD("/WEB-INF/admin/pptConfig.jsp", "/admin/pptupload"),
 	// PRO 上传
-	PROIMGUPLOAD("/admin/product", "/admin/proupload");
+	PROIMGUPLOAD("/admin/product", "/admin/proupload"),
+//	
+	EDITPRO("/admin/editPro", "/WEB-INF/admin/EditlProduct.jsp");
 
 	private UrlEnum(String desc, String url) {
 		this.url = url;

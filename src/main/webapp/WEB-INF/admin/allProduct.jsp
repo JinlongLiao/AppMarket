@@ -156,7 +156,7 @@
 								<td><c:if test="${item.GOOS_STATU!=1}">
 										<a class="btn btn-info ">启用</a>&nbsp;</c:if> <c:if
 										test="${item.GOOS_STATU==1}">
-										<a class="btn btn-warning,">注销</a>&nbsp;</c:if><a
+										<a class="btn btn-warning,">注销</a>&nbsp;</c:if><a href='<%=basePath %>/admin/editPro?id=${item.GOODS_ID}'
 									class="btn btn-primary">编辑</a>&nbsp;<c:if
 										test="${item.GOOS_STATU!=1}">
 										<a class="btn btn-danger">删除</a>&nbsp;</c:if><a

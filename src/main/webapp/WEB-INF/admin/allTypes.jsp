@@ -46,7 +46,7 @@
 				<button class="btn btn-primary btn-lg" data-toggle="modal"
 					data-target="#myModal"
 					style="text-align: right; float: right; margin-right: 0.7 rem"
-					onclick="addType()">添加</button>
+					onclick="addType('<%=basePath%>/admin/addTypes','<%= basePath+UrlEnum.TYPES.getDesc() %>')">添加</button>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -60,8 +60,9 @@
 							<tr>
 								<td>${status.index+1}</td>
 								<td>${item.TYPE_NAME}</td>
-								<td><td><a class="btn btn-info ">启用</a>&nbsp;<a
-									class="btn btn-primary">编辑</a>&nbsp;<a class="btn btn-danger">删除</a></td></td>
+								<td>
+								<td><a class="btn btn-primary">编辑</a>&nbsp;<a
+									class="btn btn-danger">删除</a></td>
 							</tr>
 						</c:forEach>
 
@@ -72,38 +73,4 @@
 	</div>
 </div>
 </body>
-<script>
-var flag=true;
-	//执行操作
-	function addType() {
-		if(flag){
-			flag=false;
-		jQuery.ajax({
-			url : '<%=basePath%>/admin/addTypes',
-						type : 'POST',
-						dataType : 'json',
-						data : {
-							type_name : $('#input').val()
-						},
-						complete : function(xhr, textStatus) {
-							//called when complete
-
-						},
-						success : function(data, textStatus, xhr) {
-							//called when successful
-							if (data.result) {
-								alert("添加成功");
-								location.href ='<%= basePath+UrlEnum.TYPES.getDesc() %>';
-							} else {
-								alert("添加失败：" + data.desc);
-							}
-						},
-						error : function(xhr, textStatus, errorThrown) {
-							//called when there is an error
-						}
-					});
-		} else {
-			return;
-		}
-	}
-</script>
+<script type="text/javascript" src="<%=basePath %>/js/types.js"></script>
