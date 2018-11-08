@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String basePath = "http://" + request.getLocalName() + ":" + request.getLocalPort()
+	String basePath = "http://" + request.getLocalAddr() + ":" + request.getLocalPort()
 			+ request.getContextPath();
 %>
 <!DOCTYPE html>
@@ -81,7 +81,18 @@
 <script src="<%=basePath%>/js/bootstrap-select.js"
 	type="text/javascript"></script>
 <script src="<%=basePath%>/js/bootstrap-modal.js"></script>
-
+<script type="text/javascript">
+	function doUrl(tell, message, url) {
+		if (tell) {
+			var r = confirm(message);
+			if (r) {
+				window.location.href = url;
+			}
+		} else {
+			window.location.href = url;
+		}
+	}
+</script>
 <body>
 
 	<nav class="navbar navbar-inverse navbar-fixed-top">

@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String basePath = "http://" + request.getLocalName() + ":" + request.getLocalPort()
+	String basePath = "http://" + request.getLocalAddr() + ":" + request.getLocalPort()
 			+ request.getContextPath();
 %>
 <!DOCTYPE html>
@@ -272,9 +272,9 @@
 	<div class="clear"></div>
 	<!--引导 -->
 	<div class="navCir">
-		<li class="active"><a href="<%=basePath%>"><i
+		<li><a href="<%=basePath%>"><i
 				class="am-icon-bank "></i>我要借款 </a></li>
-		<li><a href="<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>"><i
+		<li class="active"><a href="<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>"><i
 				class="am-icon-star"></i>明星产品</a></li>
 
 		<%-- <li><a href="<%=basePath%>/<%=UrlEnum.ARTICLE.getDesc()%>"><i

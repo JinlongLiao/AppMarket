@@ -3,10 +3,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String basePath = "http://" + request.getLocalName() + ":" + request.getLocalPort()
+	String basePath = "http://" + request.getLocalAddr() + ":" + request.getLocalPort()
 			+ request.getContextPath();
 %>
 <jsp:include page="common.jsp"></jsp:include>
+${scritp}
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-3 col-md-2 sidebar">
@@ -37,16 +38,20 @@
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<h1 class="page-header">产品展示</h1>
 			<div class="table-responsive">
-				<p>
+				<input type="text" id="myid" name="id" style="display: none" />
 				<div class="form-group">
 					<label for="input">输入商品类型</label> <input type="text"
-						class="form-control" id="input" />
+						name="typename" class="form-control" id="input" />
 					<p class="help-block">商品类型</p>
 				</div>
-				<button class="btn btn-primary btn-lg" data-toggle="modal"
-					data-target="#myModal"
+				<button class="btn btn-primary btn-lg" data-target="#myModal"
 					style="text-align: right; float: right; margin-right: 0.7 rem"
-					onclick="addType('<%=basePath%>/admin/addTypes','<%= basePath+UrlEnum.TYPES.getDesc() %>')">添加</button>
+					id="madd"
+					onclick="addType('<%=basePath%>/admin/addTypes','<%=basePath + UrlEnum.TYPES.getDesc()%>')">添加</button>
+				<a class="btn btn-primary btn-lg"
+					style="text-align: right; float: right; margin-right: 0.7 rem; display: none"
+					id="mupdate"
+					onclick="upDateType('<%=basePath%>/admin/typedit?edit=true','<%=basePath + UrlEnum.TYPES.getDesc()%>')">更新</a>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -61,8 +66,10 @@
 								<td>${status.index+1}</td>
 								<td>${item.TYPE_NAME}</td>
 								<td>
-								<td><a class="btn btn-primary">编辑</a>&nbsp;<a
-									class="btn btn-danger">删除</a></td>
+								<td><a class="btn btn-primary"
+									onclick="javascript:doEdit('${item.TYPE_ID}','${item.TYPE_NAME}')">编辑</a>&nbsp;<a
+									class="btn btn-danger"
+									onclick='javascript:doUrl(true,"是否删除该类型","<%=basePath %>/admin/typedit?top=true&id=${item.TYPE_ID}&status=0")'>删除</a></td>
 							</tr>
 						</c:forEach>
 
@@ -73,4 +80,4 @@
 	</div>
 </div>
 </body>
-<script type="text/javascript" src="<%=basePath %>/js/types.js"></script>
+<script type="text/javascript" src="<%=basePath%>/js/types.js"></script>

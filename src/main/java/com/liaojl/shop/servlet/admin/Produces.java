@@ -34,7 +34,7 @@ public class Produces extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM TB_GOODS";
+		String sql = "SELECT * FROM VW_ALL_GOODS";
 		List<Map<String, Object>> results = DatabaseHelper.execQuery(sql, null);
 		for (Map<String, Object> map : results) {
 			if (!FileMove.IsExists(String.valueOf(map.get("GOODS_IMG")))) {

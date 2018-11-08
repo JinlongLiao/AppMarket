@@ -2,9 +2,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String basePath = "http://" + request.getLocalName() + ":" + request.getLocalPort()
+	String basePath = "http://" + request.getLocalAddr() + ":" + request.getLocalPort()
 			+ request.getContextPath();
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 
@@ -81,15 +82,18 @@
 		<div class="am-slider am-slider-default scoll" data-am-flexslider
 			id="demo-slider-0">
 			<ul class="am-slides">
-				<li class="banner1"><a href="introduction.html"><img
+				<%-- <li class="banner1"><a href="introduction.html"><img
 						src="<%=basePath%>/images/gao.png" /></a></li>
 				<li class="banner2"><a><img
 						src="<%=basePath%>/images/abx.png" /></a></li>
 				<li class="banner3"><a><img
 						src="<%=basePath%>/images/gao.png" /></a></li>
 				<li class="banner4"><a><img
-						src="<%=basePath%>/images/abx.png" /></a></li>
-
+						src="<%=basePath%>/images/abx.png" /></a></li> --%>
+				<c:forEach items="${tops}" var="item" varStatus="status">
+					<li class="banner${status.index+1}"><a><img
+							src="<%=basePath%>/upload/${item. GOODS_IMG}" /></a></li>
+				</c:forEach>
 			</ul>
 		</div>
 	</div>
@@ -171,21 +175,25 @@
 					<h3>带给您享不停的优惠活动</h3>
 				</div>
 				<div class="am-g am-g-fixed ">
-					<div class="am-u-sm-3 ">
-						<div class="icon-sale one "></div>
-						<h4>有米</h4>
-						<div class="activityMain ">
-							<img src="<%=basePath%>/images/ym.png "></img>
-						</div>
-						<div class="info ">
-							<h3>有米</h3>
-							<p>1000-10000</p>
-							<p>
-								<span>133364</span>人申请
-							</p>
-						</div>
-					</div>
+					<c:forEach items="${goods}" var="item" varStatus="status">
 
+						<div class="am-u-sm-4 ">
+							<div class="icon-sale one "></div>
+							<h4>${item. GOODS_NAME}</h4>
+							<div class="activityMain ">
+								<img src="<%=basePath%>/upload/${item. GOODS_IMG}"></img>
+							</div>
+							<div class="info ">
+								<p style="font-size: 10px;">${item. GOODS_NAME}</p>
+								<p style="font-size: 10px;">${item. GOODS_MIN_PRICE}-${item. GOODS_MAX_PRICE}</p>
+								<p>
+									<span style="font-size: 8px;">${item. GOODS_SEE}</span>人申请
+								</p>
+							</div>
+						</div>
+					</c:forEach>
+
+					<%-- 
 					<div class="am-u-sm-3 ">
 						<div class="icon-sale two "></div>
 						<h4>折上购</h4>
@@ -257,7 +265,7 @@
 								<span>132710</span>人申请
 							</p>
 						</div>
-					</div>
+					</div> --%>
 				</div>
 			</div>
 			<div class="clear "></div>
@@ -314,7 +322,7 @@
 					<p class='am-icon-bank'>首页</p>
 				</div>
 				<div id="shopCart " class="item "
-					onclick="window.location.href='<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>';">
+					onclick="window.location.href='<%=basePath%><%=UrlEnum.TYPE.getDesc()%>';">
 					<a> <span class="message "></span>
 					</a>
 					<p class='am-icon-star'>明星产品</p>

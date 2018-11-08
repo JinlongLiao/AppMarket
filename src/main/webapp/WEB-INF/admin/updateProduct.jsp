@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	String basePath = "http://" + request.getLocalName() + ":" + request.getLocalPort()
+	String basePath = "http://" + request.getLocalAddr() + ":" + request.getLocalPort()
 			+ request.getContextPath();
 %>
 <jsp:include page="common.jsp"></jsp:include>

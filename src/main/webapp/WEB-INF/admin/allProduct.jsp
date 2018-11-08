@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	String basePath = "http://" + request.getLocalName() + ":" + request.getLocalPort()
+	String basePath = "http://" + request.getLocalAddr() + ":" + request.getLocalPort()
 			+ request.getContextPath();
 %>
 <jsp:include page="common.jsp"></jsp:include>
@@ -42,6 +42,7 @@
 						<button type="button" class="close" data-dismiss="modal"
 							aria-hidden="true">×</button>
 						<h4 class="modal-title" id="myModalLabel">添加</h4>
+						<h4 class="modal-title" id="medit" style="display: none;">修改</h4>
 					</div>
 					<div class="modal-body">
 						<form class="form-horizontal" role="form" method="post"
@@ -134,6 +135,7 @@
 						<tr>
 							<th>序号</th>
 							<th>名称</th>
+							<th>类型</th>
 							<th>链接地址</th>
 							<th>放款区间</th>
 							<th>描述</th>
@@ -146,6 +148,7 @@
 							<tr>
 								<td>${status.index+1}</td>
 								<td>${item.GOODS_NAME}</td>
+								<td>${item.TYPE_NAME}</td>
 								<td>${item.GOODS_URL}</td>
 								<td>${item.GOODS_MIN_PRICE}至${item.GOODS_MAX_PRICE}</td>
 								<td>${item.GOODS_DESC}</td>
@@ -154,12 +157,16 @@
 										<c:otherwise>失效   </c:otherwise>
 									</c:choose></td>
 								<td><c:if test="${item.GOOS_STATU!=1}">
-										<a class="btn btn-info ">启用</a>&nbsp;</c:if> <c:if
-										test="${item.GOOS_STATU==1}">
-										<a class="btn btn-warning,">注销</a>&nbsp;</c:if><a href='<%=basePath %>/admin/editPro?id=${item.GOODS_ID}'
+										<a class="btn btn-info "
+											onclick='javascript:doUrl(true,"是否启用该产品","<%=basePath %>/admin/delete?edit=true&id=${item.GOODS_ID}&status=1")'>启用</a>&nbsp;</c:if>
+									<c:if test="${item.GOOS_STATU==1}">
+										<a class="btn btn-info "
+											onclick='javascript:doUrl(true,"是否注销该产品","<%=basePath %>/admin/delete?edit=true&id=${item.GOODS_ID}&status=0")'>注销</a>&nbsp;</c:if><a
+									href='<%=basePath %>/admin/editPro?id=${item.GOODS_ID}'
 									class="btn btn-primary">编辑</a>&nbsp;<c:if
 										test="${item.GOOS_STATU!=1}">
-										<a class="btn btn-danger">删除</a>&nbsp;</c:if><a
+										<a class="btn btn-danger"
+											onclick='javascript:doUrl(true,"是否删除该产品","<%=basePath %>/admin/delete?id=${item.GOODS_ID}&status=0")'>删除</a>&nbsp;</c:if><a
 									class="btn btn-success">↑↑</a>&nbsp;<a class="btn btn-success">↓↓</a></td>
 							</tr>
 						</c:forEach>

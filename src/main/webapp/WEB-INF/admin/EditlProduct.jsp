@@ -3,7 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	String basePath = "http://" + request.getLocalName() + ":" + request.getLocalPort()
+	String basePath = "http://" + request.getLocalAddr() + ":" + request.getLocalPort()
 			+ request.getContextPath();
 %>
 <jsp:include page="common.jsp"></jsp:include>
@@ -37,7 +37,7 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<form class="form-horizontal" role="form" method="post"
 			enctype="multipart/form-data"
-			action="<%=basePath + UrlEnum.EDITPRO.getDesc()%>?edit=true">
+			action="<%=basePath + UrlEnum.EDITPRO.getDesc()%>?edit=true${top}">
 			<input name="pid" value="${user.GOODS_ID }" style="display: none;"/>
 			<div class="form-group">
 				<label for="firstname" class="col-sm-2 control-label">产品名称</label>

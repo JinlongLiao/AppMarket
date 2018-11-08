@@ -288,7 +288,6 @@ public class DatabaseHelper {
 					pstmt.setString(i + 1, params[i] + "");
 				}
 			}
-
 			return pstmt.executeUpdate(); // 执行更新，并返回影响行数
 
 		} catch (SQLException e) {

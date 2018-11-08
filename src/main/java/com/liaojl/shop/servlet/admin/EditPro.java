@@ -47,20 +47,32 @@ public class EditPro extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String top = "TB_GOODS";
+		String returnUrl = UrlEnum.PROIMGUPLOAD.getDesc();
+
 		// TODO Auto-generated method stub
 		if (StringUtil.isEmptyOrEmptyStr(request.getParameter("edit"))) {
 			String id = request.getParameter("id");
-			List<Map<String, Object>> lists = DatabaseHelper.execQuery("SELECT * FROM TB_GOODS WHERE GOODS_ID=?",
+			if (!StringUtil.isEmptyOrEmptyStr(request.getParameter("top"))) {
+				request.setAttribute("top", "&top=true");
+				returnUrl = UrlEnum.PRODUCT.getDesc();
+			}
+			top = StringUtil.isEmptyOrEmptyStr(request.getParameter("top")) ? "TB_GOODS" : "TB_GOODS_TOP";
+			List<Map<String, Object>> lists = DatabaseHelper.execQuery("SELECT * FROM " + top + " WHERE GOODS_ID=?",
 					new Object[] { id });
 			if (lists.isEmpty()) {
-				throw new RuntimeException("未有效 用户信息");
+				throw new RuntimeException("未检查到有效 产品信息");
 			}
 			request.setAttribute("user", lists.get(0));
 			List<Map<String, Object>> types = DatabaseHelper.execQuery("SELECT * FROM TB_TYPE", null);
 			request.setAttribute("types", types);
 			request.getRequestDispatcher(UrlEnum.EDITPRO.getUrl()).forward(request, response);
 		} else {
-			String sql = "UPDATE TB_GOODS SET  "
+			if (!StringUtil.isEmptyOrEmptyStr(request.getParameter("top"))) {
+				returnUrl = UrlEnum.PPTCONFIG.getDesc();
+			}
+			top = StringUtil.isEmptyOrEmptyStr(request.getParameter("top")) ? "TB_GOODS" : "TB_GOODS_TOP";
+			String sql = "UPDATE " + top + " SET  "
 					+ "GOODS_NAME=?, GOODS_TYPE=?, GOODS_MIN_PRICE=?, GOODS_MAX_PRICE=?, "
 					+ "GOODS_DESC=?, GOODS_URL=?, GOODS_IMG=?" + " WHERE (GOODS_ID=?)";
 			String pname = null, pdesc = null, pmax = null, pmin = null, purl = null, ptype = null, pid = null,
@@ -88,7 +100,7 @@ public class EditPro extends HttpServlet {
 							String name = fileItem.getFieldName();// name属性值
 							if (name.equals("pname")) {
 								pname = fileItem.getString("utf-8");
-							}else if (name.equals("pmax")) {
+							} else if (name.equals("pmax")) {
 								pmax = fileItem.getString("utf-8");
 							} else if (name.equals("pmin")) {
 								pmin = fileItem.getString("utf-8");
@@ -138,7 +150,7 @@ public class EditPro extends HttpServlet {
 				}
 			}
 			if (StringUtil.isEmptyOrEmptyStr(pimg)) {
-				sql = "UPDATE TB_GOODS SET  " + "GOODS_NAME=?, GOODS_TYPE=?, GOODS_MIN_PRICE=?, GOODS_MAX_PRICE=?, "
+				sql = "UPDATE " + top + " SET  " + "GOODS_NAME=?, GOODS_TYPE=?, GOODS_MIN_PRICE=?, GOODS_MAX_PRICE=?, "
 						+ "GOODS_DESC=?, GOODS_URL=? WHERE (GOODS_ID=?)";
 				try {
 					DatabaseHelper.execUpdate(sql, new Object[] { pname, ptype, pmin, pmax, pdesc, purl, pid });
@@ -146,7 +158,7 @@ public class EditPro extends HttpServlet {
 					// TODO Auto-generated catch block
 					logger.error("更新错误", e);
 				}
-				response.sendRedirect(request.getContextPath() + UrlEnum.PROIMGUPLOAD.getDesc());
+				response.sendRedirect(request.getContextPath() + returnUrl);
 				return;
 			}
 			try {
@@ -155,7 +167,7 @@ public class EditPro extends HttpServlet {
 				// TODO Auto-generated catch block
 				logger.error("更新错误", e);
 			}
-			response.sendRedirect(request.getContextPath() + UrlEnum.PROIMGUPLOAD.getDesc());
+			response.sendRedirect(request.getContextPath() + returnUrl);
 		}
 
 	}

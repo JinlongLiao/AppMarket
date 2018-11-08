@@ -35,21 +35,21 @@ public class AdminServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM TB_GOODS_TOP";
+		String sql = "SELECT * FROM VW_ALL_GOODS_TOP";
 		List<Map<String, Object>> results = DatabaseHelper.execQuery(sql, null);
 		for (Map<String, Object> map : results) {
 			if (!FileMove.IsExists(String.valueOf(map.get("GOODS_IMG")))) {
 				map.replace("GOODS_IMG", "default.gif");
 			}
 		}
-		String sql2 = "SELECT * FROM TB_GOODS_TOP";
+		String sql2 = "SELECT * FROM VW_ALL_GOODS";
 		List<Map<String, Object>> results2 = DatabaseHelper.execQuery(sql2, null);
 		for (Map<String, Object> map : results2) {
 			if (!FileMove.IsExists(String.valueOf(map.get("GOODS_IMG")))) {
 				map.replace("GOODS_IMG", "default.gif");
 			}
 		}
-		results2.addAll(results);
+//		results2.addAll(results);
 		request.setAttribute("results", results2);
 
 		request.setAttribute("types", results);
