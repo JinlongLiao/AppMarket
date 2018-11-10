@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
+import com.liaojl.shop.servlet.TypeNameAndId;
 import com.liaojl.shop.url.UrlEnum;
 import com.liaojl.shop.utils.DatabaseHelper;
 import com.liaojl.shop.utils.StringUtil;
@@ -21,6 +24,7 @@ import com.liaojl.shop.utils.StringUtil;
 @WebServlet("/admin/typedit")
 public class TypeEdit extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger.getLogger(TypeEdit.class);
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -62,7 +66,7 @@ public class TypeEdit extends HttpServlet {
 					DatabaseHelper.execUpdate("DELETE FROM " + tableName + " WHERE TYPE_ID=?", new String[] { id });
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
-					e.printStackTrace();
+					logger.error(e.getMessage(), e);
 				}
 				request.getRequestDispatcher(returnUrl).forward(request, response);
 				return;
@@ -76,8 +80,9 @@ public class TypeEdit extends HttpServlet {
 						new String[] { String.valueOf(typeName), id });
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.error(e.getMessage(), e);
 			}
+			TypeNameAndId.Reinit();
 			response.getWriter().write("{\"result\":true}");
 			return;
 		}

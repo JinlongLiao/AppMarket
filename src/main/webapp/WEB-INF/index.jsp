@@ -70,9 +70,19 @@
 
 .activity .am-g h4 {
 	position: absolute;
-	color: #fff;
-	left: 5%;
+	color: #FF0033;
+	left: 15%;
+	top: 10%;
 }
+
+.activity .icon-sale {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-top: 20px solid #0087e5;
+	border-right: 30px solid transparent;
+}
+
 </style>
 </head>
 
@@ -178,7 +188,7 @@
 					<c:forEach items="${goods}" var="item" varStatus="status">
 
 						<div class="am-u-sm-4 ">
-							<div class="icon-sale one "></div>
+							<div class="icon-sale C${staus.index%2} "></div>
 							<h4>${item. GOODS_NAME}</h4>
 							<div class="activityMain ">
 								<img src="<%=basePath%>/upload/${item. GOODS_IMG}"></img>

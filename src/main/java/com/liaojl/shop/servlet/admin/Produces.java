@@ -34,11 +34,11 @@ public class Produces extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String sql = "SELECT * FROM VW_ALL_GOODS";
+		String sql = "SELECT * FROM VW_ALL_GOODS ORDER BY GOODS_INDEX";
 		List<Map<String, Object>> results = DatabaseHelper.execQuery(sql, null);
 		for (Map<String, Object> map : results) {
 			if (!FileMove.IsExists(String.valueOf(map.get("GOODS_IMG")))) {
-				map.replace("GOODS_IMG", "default.gif");
+				map.replace("GOODS_IMG", "default.jpg");
 			}
 		}
 		List<Map<String, Object>> types = DatabaseHelper.execQuery("SELECT * FROM TB_TYPE", null);

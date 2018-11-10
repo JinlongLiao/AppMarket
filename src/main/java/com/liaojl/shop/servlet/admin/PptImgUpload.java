@@ -26,9 +26,6 @@ import com.liaojl.shop.url.UrlEnum;
 import com.liaojl.shop.utils.DatabaseHelper;
 import com.liaojl.shop.utils.FileMove;
 
-/**
- * Servlet implementation class PptImgUpload
- */
 public class PptImgUpload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(PptImgUpload.class);
@@ -128,7 +125,7 @@ public class PptImgUpload extends HttpServlet {
 			} catch (FileUploadException e) {
 				logger.error(e);
 			} catch (Exception e) {
-				logger.error(e);
+				logger.error(e.getMessage(), e);
 			}
 		}
 		try {
@@ -136,7 +133,7 @@ public class PptImgUpload extends HttpServlet {
 			DatabaseHelper.closeConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			logger.error(e);
+			logger.error(e.getMessage(), e);
 		}
 	}
 

@@ -1,6 +1,10 @@
-<%@page import="com.liaojl.shop.url.UrlEnum"%>
+<%@page import="com.liaojl.shop.servlet.TypeNameAndId"%>
+<%@page
+	import="com.liaojl.shop.url.UrlEnum,java.util.Map,java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <%
 	String basePath = "http://" + request.getLocalAddr() + ":" + request.getLocalPort()
 			+ request.getContextPath();
@@ -41,7 +45,7 @@
 .sort-side dd {
 	float: left;
 	padding: 1%;
-	width: 25%;
+	width: 33.3%;
 }
 
 .sort-side dd a {
@@ -77,127 +81,28 @@
 						<div class="area-bg">
 							<div class="menu-srot">
 								<div class="brand-side">
-									<dl class="dl-sort">
-										<img src="<%=basePath%>/images/abx.png">
+									<dl class="dl-sort" id='box'>
+										<c:forEach items="${tops}" var="item" varStatus="status">
+											<c:if test="${status.index==0}">
+												<img src="<%=basePath%>/upload/${item. GOODS_IMG}" />
+											</c:if>
+											<c:if test="${status.index !=0}">
+												<img src="<%=basePath%>/upload/${item. GOODS_IMG}"
+													style="display: none;" />
+											</c:if>
+										</c:forEach>
+
+										<%-- <img src="<%=basePath%>/images/abx.png"> --%>
 									</dl>
 								</div>
 								<div class="sort-side">
-									<dl class="dl-sort">
-										<dt>
-											<span title="饼干">快速下款</span>
-										</dt>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-									</dl>
-									<dl class="dl-sort">
-										<dt>
-											<span title="饼干">不限金额</span>
-										</dt>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-									</dl>
-									<dl class="dl-sort">
+									${goodsByType}
+									<%-- <dl class="dl-sort">
 										<dt>
 											<span title="饼干">饼干</span>
 										</dt>
 										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
+											<img  style='width: 135px;height: 135px' src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
 												href="#"><span>
 													<p>有米</p>
 													<p>1000-10000</p>
@@ -206,47 +111,7 @@
 													</p>
 											</span></a>
 										</dd>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-										<dd>
-											<img src="<%=basePath%>/images/ym.png "></img> <a title="蒸蛋糕"
-												href="#"><span>
-													<p>有米</p>
-													<p>1000-10000</p>
-													<p>
-														<span>133364</span>人申请
-													</p>
-											</span></a>
-										</dd>
-									</dl>
+									</dl> --%>
 								</div>
 
 							</div>
@@ -272,9 +137,10 @@
 	<div class="clear"></div>
 	<!--引导 -->
 	<div class="navCir">
-		<li><a href="<%=basePath%>"><i
-				class="am-icon-bank "></i>我要借款 </a></li>
-		<li class="active"><a href="<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>"><i
+		<li><a href="<%=basePath%>"><i class="am-icon-bank "></i>我要借款
+		</a></li>
+		<li class="active"><a
+			href="<%=basePath%>/<%=UrlEnum.TYPE.getDesc()%>"><i
 				class="am-icon-star"></i>明星产品</a></li>
 
 		<%-- <li><a href="<%=basePath%>/<%=UrlEnum.ARTICLE.getDesc()%>"><i
@@ -337,3 +203,23 @@
 </body>
 
 </html>
+<script type="text/javascript">
+		var delay = 5000;
+		var list=$('#box img');
+		var index=0;
+		var length=list.length;
+		setInterval(() => {
+			for (var i = 0; i < length; i++) {
+				if(i!=index){
+					$(list[i]).css('display','none');
+				}else {
+					$(list[i]).css('display','block');
+				}
+			}
+			if(index==(length-1)){
+				index=0;
+			}else{
+				index++;
+			}
+		}, delay);
+	</script>

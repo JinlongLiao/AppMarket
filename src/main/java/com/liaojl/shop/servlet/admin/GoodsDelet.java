@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
+import com.liaojl.shop.servlet.AdminServlet;
 import com.liaojl.shop.url.UrlEnum;
 import com.liaojl.shop.utils.DatabaseHelper;
 import com.liaojl.shop.utils.StringUtil;
@@ -19,6 +22,7 @@ import com.liaojl.shop.utils.StringUtil;
 @WebServlet("/admin/delete")
 public class GoodsDelet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger.getLogger(GoodsDelet.class);
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -56,7 +60,7 @@ public class GoodsDelet extends HttpServlet {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e.getMessage(), e);
 		}
 //		request.setAttribute("scritp", "<script>alert('删除成功')</script>");
 		response.sendRedirect(request.getContextPath() + returnUrl);

@@ -130,7 +130,12 @@ public class EditPro extends HttpServlet {
 								File file = new File(newFileName);
 								logger.debug("临时文件：" + file.getAbsolutePath());
 								fileItem.write(file);
-								FileMove.move(file);
+								if (StringUtil.isEmptyOrEmptyStr(request.getParameter("top"))) {
+									FileMove.move2(file);
+								} else {
+									FileMove.move(file);
+								}
+								;
 								file.delete();
 								// 6. 调用FileItem的delete()方法，删除临时文件
 								fileItem.delete();
@@ -144,9 +149,10 @@ public class EditPro extends HttpServlet {
 						}
 					}
 				} catch (FileUploadException e) {
-					logger.error(e);
+					logger.error(e.getMessage(), e);
 				} catch (Exception e) {
-					logger.error(e);
+					e.printStackTrace();
+					logger.error(e.getMessage(), e);
 				}
 			}
 			if (StringUtil.isEmptyOrEmptyStr(pimg)) {

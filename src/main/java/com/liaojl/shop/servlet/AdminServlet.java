@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
+import com.liaojl.shop.servlet.admin.PptImgUpload;
 import com.liaojl.shop.url.UrlEnum;
 import com.liaojl.shop.utils.DatabaseHelper;
 import com.liaojl.shop.utils.FileMove;
@@ -19,6 +22,7 @@ import com.liaojl.shop.utils.StringUtil;
  */
 public class AdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger.getLogger(AdminServlet.class);
 
 	/**
 	 * @see HttpServlet#HttpServlet()

@@ -8,14 +8,11 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.text.TabStop;
 
 import com.liaojl.shop.url.UrlEnum;
 import com.liaojl.shop.utils.DatabaseHelper;
+import com.liaojl.shop.utils.FileMove;
 
-/**
- * Servlet implementation class Index
- */
 public class Index extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -34,10 +31,20 @@ public class Index extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		List<Map<String, Object>> tops = DatabaseHelper.execQuery("SELECT * FROM VW_ALL_GOODS_TOP WHERE GOOS_STATU =1",
+		List<Map<String, Object>> tops = DatabaseHelper.execQuery("SELECT * FROM VW_ALL_GOODS_TOP WHERE GOOS_STATU =1 ",
 				null);
-		List<Map<String, Object>> goods = DatabaseHelper.execQuery("SELECT * FROM VW_ALL_GOODS WHERE GOOS_STATU =1",
-				null);
+		List<Map<String, Object>> goods = DatabaseHelper
+				.execQuery("SELECT * FROM VW_ALL_GOODS WHERE GOOS_STATU =1 ORDER BY GOODS_INDEX ", null);
+		for (Map<String, Object> map : tops) {
+			if (!FileMove.IsExists(String.valueOf(map.get("GOODS_IMG")))) {
+				map.replace("GOODS_IMG", "default.jpg");
+			}
+		}
+		for (Map<String, Object> map : goods) {
+			if (!FileMove.IsExists(String.valueOf(map.get("GOODS_IMG")))) {
+				map.replace("GOODS_IMG", "default.jpg");
+			}
+		}
 		request.setAttribute("tops", tops);
 		request.setAttribute("goods", goods);
 		request.getRequestDispatcher(UrlEnum.USERMAIN.getUrl()).forward(request, response);

@@ -37,7 +37,7 @@ public class AddTypes extends HttpServlet {
 			DatabaseHelper.execUpdate(sql, new String[] { UUID.randomUUID().toString(), type });
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			logger.error("添加错误", e);
+			logger.error("添加错误" + e.getMessage(), e);
 			json = "{\"result\":false,\"desc\":\"" + e.getMessage() + "\"}";
 		}
 		PrintWriter writer = response.getWriter();

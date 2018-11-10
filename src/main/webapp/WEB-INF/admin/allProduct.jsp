@@ -166,11 +166,13 @@
 									class="btn btn-primary">编辑</a>&nbsp;<c:if
 										test="${item.GOOS_STATU!=1}">
 										<a class="btn btn-danger"
-											onclick='javascript:doUrl(true,"是否删除该产品","<%=basePath %>/admin/delete?id=${item.GOODS_ID}&status=0")'>删除</a>&nbsp;</c:if><a
-									class="btn btn-success">↑↑</a>&nbsp;<a class="btn btn-success">↓↓</a></td>
+											onclick='javascript:doUrl(true,"是否删除该产品","<%=basePath %>/admin/delete?id=${item.GOODS_ID}&status=0")'>删除</a>&nbsp;</c:if>
+									<a class="btn btn-success"
+									onclick='javascript:doUrl(false,"是t该产品","<%=basePath %>/admin/dosort?id=${item.GOODS_ID}&go=true")'>↑↑</a>&nbsp;
+									<a class="btn btn-success"
+									onclick='javascript:doUrl(false,"是否删除该产品","<%=basePath %>/admin/dosort?id=${item.GOODS_ID}&go=false")'>↓↓</a></td>
 							</tr>
 						</c:forEach>
-
 					</tbody>
 				</table>
 			</div>

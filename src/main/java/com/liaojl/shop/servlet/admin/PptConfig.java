@@ -38,7 +38,7 @@ public class PptConfig extends HttpServlet {
 		List<Map<String, Object>> results = DatabaseHelper.execQuery(sql, null);
 		for (Map<String, Object> map : results) {
 			if (!FileMove.IsExists(String.valueOf(map.get("GOODS_IMG")))) {
-				map.replace("GOODS_IMG", "default.gif");
+				map.replace("GOODS_IMG", "default.jpg");
 			}
 		}
 		List<Map<String, Object>> types = DatabaseHelper.execQuery("SELECT * FROM TB_TYPE", null);

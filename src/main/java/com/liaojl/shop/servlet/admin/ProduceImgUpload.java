@@ -62,7 +62,7 @@ public class ProduceImgUpload extends HttpServlet {
 			pre.setString(1, UUID.randomUUID().toString());
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
-			logger.error("", e1);
+			logger.error(e1.getMessage(), e1);
 		}
 		if (ServletFileUpload.isMultipartContent(request)) {
 			try {
@@ -127,9 +127,9 @@ public class ProduceImgUpload extends HttpServlet {
 					}
 				}
 			} catch (FileUploadException e) {
-				logger.error(e);
+				logger.error(e.getMessage(), e);
 			} catch (Exception e) {
-				logger.error(e);
+				logger.error(e.getMessage(), e);
 			}
 		}
 		try {
@@ -137,7 +137,7 @@ public class ProduceImgUpload extends HttpServlet {
 			DatabaseHelper.closeConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			logger.error(e);
+			logger.error(e.getMessage(), e);
 		}
 	}
 

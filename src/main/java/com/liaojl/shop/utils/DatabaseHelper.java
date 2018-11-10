@@ -309,12 +309,16 @@ public class DatabaseHelper {
 
 		try {
 			pstmt = getConnection().prepareStatement(sql);// 获得预设语句对象
-
+			logger.debug("SQL:" + sql);
+//			for (Object object : params) {
+//				logger.debug("param:" + String.valueOf(object));
+//
+//			}
 			if (params != null) {
 				// 设置参数列表
 				for (int i = 0; i < params.length; i++) {
 					// 因为问号参数的索引是从1开始，所以是i+1，将所有值都转为字符串形式，好让setObject成功运行
-					pstmt.setObject(i + 1, params[i] + "");
+					pstmt.setString(i + 1, String.valueOf(params[i]));
 				}
 			}
 
@@ -348,7 +352,7 @@ public class DatabaseHelper {
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			logger.error("", e);
+			logger.error(e.getMessage(), e);
 		} finally {
 			closeConnection();
 		}
