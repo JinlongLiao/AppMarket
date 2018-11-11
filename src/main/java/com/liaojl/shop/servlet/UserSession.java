@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
+import java.util.UUID;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -15,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 
+import com.liaojl.shop.log.LogConfig;
 import com.liaojl.shop.utils.Constant;
 import com.liaojl.shop.utils.DatabaseHelper;
 
@@ -59,6 +62,19 @@ public final class UserSession implements Filter {
 				logger.error("用户检测登陆失败", e);
 			} finally {
 				DatabaseHelper.closeConnection();
+			}
+		}
+//	用户日志记录
+		if (LogConfig.userlog) {
+			String ip = request.getRemoteHost();
+			String sql = "INSERT INTO TB_LOG (LOG_ID, LOG_IP, LOG_TIME) VALUES (?, ?, ?);";
+			Object[] params = new Object[] { UUID.randomUUID().toString(), ip,
+					new Timestamp(System.currentTimeMillis()) };
+			try {
+				DatabaseHelper.execUpdate(sql, params);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				logger.error(e.getMessage(), e);
 			}
 		}
 		// pass the request along the filter chain

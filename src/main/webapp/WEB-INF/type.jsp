@@ -1,3 +1,4 @@
+<%@page import="com.liaojl.shop.log.LogConfig"%>
 <%@page import="com.liaojl.shop.servlet.TypeNameAndId"%>
 <%@page
 	import="com.liaojl.shop.url.UrlEnum,java.util.Map,java.util.List"%>
@@ -6,7 +7,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
-	String basePath = "http://" + request.getLocalAddr() + ":" + request.getLocalPort()
+	String basePath = "http://" +  LogConfig.homeurl + ":" + request.getLocalPort()
 			+ request.getContextPath();
 %>
 <!DOCTYPE html>
@@ -24,9 +25,12 @@
 <link href="<%=basePath%>/css/sortstyle.css" rel="stylesheet"
 	type="text/css" />
 <script src="<%=basePath%>/js/jquery.min.js"></script>
+<script src="<%=basePath%>/js/url.js"></script>
+
 <style>
 #nav {
 	margin-top: 0px;
+    margin-bottom: 52px;
 }
 
 .brand-side {
@@ -84,10 +88,10 @@
 									<dl class="dl-sort" id='box'>
 										<c:forEach items="${tops}" var="item" varStatus="status">
 											<c:if test="${status.index==0}">
-												<img src="<%=basePath%>/upload/${item. GOODS_IMG}" />
+												<img onclick="doUrl('<%=basePath%>/index/DoLog?top=true','${item. GOODS_URL}','${item. GOODS_ID}')" src="<%=basePath%>/upload/${item. GOODS_IMG}" />
 											</c:if>
 											<c:if test="${status.index !=0}">
-												<img src="<%=basePath%>/upload/${item. GOODS_IMG}"
+												<img onclick="doUrl('<%=basePath%>/index/DoLog?top=true','${item. GOODS_URL}','${item. GOODS_ID}')" src="<%=basePath%>/upload/${item. GOODS_IMG}"
 													style="display: none;" />
 											</c:if>
 										</c:forEach>
@@ -176,6 +180,7 @@
 					<p class='am-icon-money'>理财资讯</p>
 				</div> --%>
 
+	<div class="clear"></div>
 
 				<div class="quick_toggle ">
 					<li class="qtitem "><a href="# "><span class="kfzx "></span></a>

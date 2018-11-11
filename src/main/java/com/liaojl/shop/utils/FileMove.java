@@ -7,6 +7,7 @@ import org.apache.log4j.Logger;
 public class FileMove {
 	private static final Logger logger = Logger.getLogger(FileMove.class);
 	private static final String PATH = "../../../../../../upload";
+	private static final String ROOCLASSTPATH = "../../../../";
 
 	public static String move(File file) {
 		String parentPath = FileMove.class.getResource(PATH).getFile();
@@ -30,5 +31,10 @@ public class FileMove {
 
 	public static boolean IsExists(String name) {
 		return new File(getPath() + name).exists();
+	}
+
+	public static String getRootPath() {
+		String path = FileMove.class.getResource(ROOCLASSTPATH).getFile();
+		return path;
 	}
 }

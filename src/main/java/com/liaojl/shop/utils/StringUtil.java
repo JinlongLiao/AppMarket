@@ -24,6 +24,6 @@ public class StringUtil {
 	 * 判断字符串是否非空
 	 */
 	public static boolean isNotEmpty(String str) {
-		return !isEmpty(str);
+		return !isEmptyOrEmptyStr(str);
 	}
 }

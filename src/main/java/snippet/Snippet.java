@@ -2,6 +2,8 @@ package snippet;
 
 import java.io.UnsupportedEncodingException;
 
+import com.liaojl.shop.utils.MD5Utils;
+
 public class Snippet {
 	/**
 	 * 字符串转换unicode
@@ -124,5 +126,6 @@ public class Snippet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.err.println("\n"+MD5Utils.byteArrayToHexString("root123".getBytes()));
 	}
 }

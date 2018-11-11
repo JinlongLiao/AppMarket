@@ -1,9 +1,10 @@
+<%@page import="com.liaojl.shop.log.LogConfig"%>
 <%@page import="com.liaojl.shop.url.UrlEnum"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String basePath = "http://" + request.getLocalAddr() + ":" + request.getLocalPort()
+	String basePath = "http://" + LogConfig.homeurl + ":" + request.getLocalPort()
 			+ request.getContextPath();
 %>
 <jsp:include page="common.jsp"></jsp:include>
@@ -74,6 +75,7 @@
 							<th>名称</th>
 							<th>类型</th>
 							<th>链接地址</th>
+							<th>浏览量</th>
 							<th>放款区间</th>
 							<th>描述</th>
 							<th>状态</th>
@@ -87,6 +89,7 @@
 								<td>${item.GOODS_NAME}</td>
 								<td>${item.TYPE_NAME}</td>
 								<td>${item.GOODS_URL}</td>
+								<td>${item.GOODS_SEE}</td>
 								<td>${item.GOODS_MIN_PRICE}至${item.GOODS_MAX_PRICE}</td>
 								<td>${item.GOODS_DESC}</td>
 								<td><c:choose>
@@ -102,9 +105,9 @@
 									href='<%=basePath %>/admin/editPro?id=${item.GOODS_ID}&top=true'
 									class="btn btn-primary">编辑</a>&nbsp;<c:if
 										test="${item.GOOS_STATU!=1}">
-										<a class="btn btn-danger"
-											onclick='javascript:doUrl(true,"是否删除该产品","<%=basePath %>/admin/delete?top=true&id=${item.GOODS_ID}&status=0")'>删除</a>&nbsp;</c:if><a
-									class="btn btn-success">↑↑</a>&nbsp;<a class="btn btn-success">↓↓</a></td>
+										 <a class="btn btn-danger"
+											onclick='javascript:doUrl(true,"是否删除该产品","<%=basePath %>/admin/delete?top=true&id=${item.GOODS_ID}&status=0")'>删除</a>&nbsp;</c:if><%--<a
+									class="btn btn-success">↑↑</a>&nbsp;<a class="btn btn-success">↓↓</a> --%></td>
 							</tr>
 						</c:forEach>
 

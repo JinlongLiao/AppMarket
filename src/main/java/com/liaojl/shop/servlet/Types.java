@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import com.liaojl.shop.log.LogConfig;
 import com.liaojl.shop.url.UrlEnum;
 import com.liaojl.shop.utils.DatabaseHelper;
 import com.liaojl.shop.utils.FileMove;
@@ -49,6 +50,8 @@ public class Types extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String basePath = "http://" +  LogConfig.homeurl + ":" + request.getLocalPort() + request.getContextPath();
+
 		List<Map<String, Object>> tops = DatabaseHelper.execQuery("SELECT * FROM VW_ALL_GOODS_TOP WHERE GOOS_STATU =1 ",
 				null);
 		List<Map<String, Object>> allGoods = DatabaseHelper.execQuery("SELECT * FROM VW_ALL_GOODS WHERE GOOS_STATU =1 ",
@@ -72,11 +75,12 @@ public class Types extends HttpServlet {
 
 			List<Map<String, Object>> goods = goodsByType.get(key);
 			for (Map<String, Object> map : goods) {
-				html.append("<dd> <img  style='height: 100%' src='" + "http://" + request.getLocalAddr() + ":"
-						+ request.getLocalPort() + request.getContextPath() + "/upload/" + map.get("GOODS_IMG") + "'>"
-						+ "</img> <a title='" + map.get("GOODS_NAME") + "' href=''><span><p>" + map.get("GOODS_NAME")
-						+ "</p>	<p>" + map.get("GOODS_MIN_PRICE") + "-" + map.get("GOODS_MAX_PRICE") + "</p><p><span>"
-						+ map.get("GOODS_SEE") + "</span>人申请</p></span></a></dd>");
+				html.append("<dd> <img onclick=\"doUrl('" + basePath + "/index/DoLog','" + map.get("GOODS_URL") + "','"
+						+ map.get("GOODS_ID") + "')\" style='height: 100%' src='" + basePath + "/upload/"
+						+ map.get("GOODS_IMG") + "'>" + "</img> <a title='" + map.get("GOODS_NAME")
+						+ "' href=''><span><p>" + map.get("GOODS_NAME") + "</p>	<p>" + map.get("GOODS_MIN_PRICE") + "-"
+						+ map.get("GOODS_MAX_PRICE") + "</p><p><span>" + map.get("GOODS_SEE")
+						+ "</span>人申请</p></span></a></dd>");
 			}
 			html.append("</dl>");
 		}

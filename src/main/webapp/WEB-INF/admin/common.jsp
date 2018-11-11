@@ -1,8 +1,9 @@
+<%@page import="com.liaojl.shop.log.LogConfig"%>
 <%@page import="com.liaojl.shop.url.UrlEnum"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String basePath = "http://" + request.getLocalAddr() + ":" + request.getLocalPort()
+	String basePath = "http://" +  LogConfig.homeurl+ ":" + request.getLocalPort()
 			+ request.getContextPath();
 %>
 <!DOCTYPE html>
@@ -110,7 +111,7 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a
+					<li class="active "><a
 						href="<%=basePath + UrlEnum.ADMINMAIN.getDesc()%>">业务管理</a></li>
 					<li><a href="#contact">系统设置</a></li>
 				</ul>

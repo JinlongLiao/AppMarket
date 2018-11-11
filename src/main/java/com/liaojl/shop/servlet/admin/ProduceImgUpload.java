@@ -26,6 +26,7 @@ import org.apache.log4j.Logger;
 import com.liaojl.shop.url.UrlEnum;
 import com.liaojl.shop.utils.DatabaseHelper;
 import com.liaojl.shop.utils.FileMove;
+import com.liaojl.shop.utils.StringUtil;
 
 /**
  * Servlet implementation class ProduceImgUpload
@@ -89,9 +90,11 @@ public class ProduceImgUpload extends HttpServlet {
 						} else if (name.equals("pdesc")) {
 							pre.setString(6, fileItem.getString("utf-8"));
 						} else if (name.equals("pmax")) {
-							pre.setString(5, fileItem.getString("utf-8"));
+							pre.setString(5, StringUtil.isEmptyOrEmptyStr(fileItem.getString("utf-8")) ? "0"
+									: fileItem.getString("utf-8"));
 						} else if (name.equals("pmin")) {
-							pre.setString(4, fileItem.getString("utf-8"));
+							pre.setString(4, StringUtil.isEmptyOrEmptyStr(fileItem.getString("utf-8")) ? "0"
+									: fileItem.getString("utf-8"));
 						} else if (name.equals("purl")) {
 							pre.setString(7, fileItem.getString("utf-8"));
 						} else if (name.equals("ptype")) {
@@ -113,7 +116,7 @@ public class ProduceImgUpload extends HttpServlet {
 						File file = new File(newFileName);
 						logger.debug("临时文件：" + file.getAbsolutePath());
 						fileItem.write(file);
-						FileMove.move(file);
+						FileMove.move2(file);
 						file.delete();
 						// 6. 调用FileItem的delete()方法，删除临时文件
 						fileItem.delete();

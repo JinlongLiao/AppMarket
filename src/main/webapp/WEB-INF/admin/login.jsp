@@ -1,8 +1,15 @@
+<%@page import="com.liaojl.shop.log.LogConfig"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.List"%>
+<%@page import="com.liaojl.shop.utils.MD5Utils"%>
+<%@page import="com.liaojl.shop.utils.DatabaseHelper"%>
+<%@page import="com.liaojl.shop.utils.MapCache"%>
+<%@page import="com.liaojl.shop.utils.StringUtil"%>
 <%@page import="com.liaojl.shop.url.UrlEnum"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String basePath = "http://" + request.getLocalName() + ":" + request.getLocalPort()
+	String basePath = "http://" +  LogConfig.homeurl + ":" + request.getLocalPort()
 			+ request.getContextPath();
 %>
 <!DOCTYPE html>
@@ -21,8 +28,8 @@
 <link rel="stylesheet" href="<%=basePath%>/css/amazeui.css" />
 <link href="<%=basePath%>/css/dlstyle.css" rel="stylesheet"
 	type="text/css">
+${msg}
 </head>
-
 <body>
 	<div class="login-banner">
 		<div class="login-main">
@@ -36,14 +43,14 @@
 				<div class="clear"></div>
 
 				<div class="login-form">
-					<form>
+					<form id='form1' action="<%=basePath%>/admin/login" method="post">
 						<div class="user-name">
 							<label for="user"><i class="am-icon-user"></i></label> <input
-								type="text" name="" id="user" placeholder="用户名">
+								type="text" name="name" id="user" placeholder="用户名">
 						</div>
 						<div class="user-pass">
 							<label for="password"><i class="am-icon-lock"></i></label> <input
-								type="password" name="" id="password" placeholder="请输入密码">
+								type="password" name="pwd" id="password" placeholder="请输入密码">
 						</div>
 					</form>
 				</div>
@@ -53,7 +60,7 @@
 						type="checkbox">记住密码</label> <br />
 				</div>
 				<div class="am-cf">
-					<input type="submit" name="" value="登 录"
+					<input type="submit" form="form1" value="登 录"
 						class="am-btn am-btn-primary am-btn-sm">
 				</div>
 

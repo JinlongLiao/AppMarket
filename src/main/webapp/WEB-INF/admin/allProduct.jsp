@@ -1,9 +1,10 @@
+<%@page import="com.liaojl.shop.log.LogConfig"%>
 <%@page import="com.liaojl.shop.url.UrlEnum"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	String basePath = "http://" + request.getLocalAddr() + ":" + request.getLocalPort()
+	String basePath = "http://" +  LogConfig.homeurl + ":" + request.getLocalPort()
 			+ request.getContextPath();
 %>
 <jsp:include page="common.jsp"></jsp:include>
@@ -137,6 +138,7 @@
 							<th>名称</th>
 							<th>类型</th>
 							<th>链接地址</th>
+							<th>浏览量</th>
 							<th>放款区间</th>
 							<th>描述</th>
 							<th>状态</th>
@@ -150,6 +152,7 @@
 								<td>${item.GOODS_NAME}</td>
 								<td>${item.TYPE_NAME}</td>
 								<td>${item.GOODS_URL}</td>
+								<td>${item.GOODS_SEE}</td>
 								<td>${item.GOODS_MIN_PRICE}至${item.GOODS_MAX_PRICE}</td>
 								<td>${item.GOODS_DESC}</td>
 								<td><c:choose>

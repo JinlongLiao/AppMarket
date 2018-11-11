@@ -25,6 +25,7 @@ import org.apache.log4j.Logger;
 import com.liaojl.shop.url.UrlEnum;
 import com.liaojl.shop.utils.DatabaseHelper;
 import com.liaojl.shop.utils.FileMove;
+import com.liaojl.shop.utils.StringUtil;
 
 public class PptImgUpload extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -84,9 +85,11 @@ public class PptImgUpload extends HttpServlet {
 						} else if (name.equals("pdesc")) {
 							pre.setString(6, fileItem.getString("utf-8"));
 						} else if (name.equals("pmax")) {
-							pre.setString(5, fileItem.getString("utf-8"));
+							pre.setString(5, StringUtil.isEmptyOrEmptyStr(fileItem.getString("utf-8")) ? "0"
+									: fileItem.getString("utf-8"));
 						} else if (name.equals("pmin")) {
-							pre.setString(4, fileItem.getString("utf-8"));
+							pre.setString(4, StringUtil.isEmptyOrEmptyStr(fileItem.getString("utf-8")) ? "0"
+									: fileItem.getString("utf-8"));
 						} else if (name.equals("purl")) {
 							pre.setString(7, fileItem.getString("utf-8"));
 						} else if (name.equals("ptype")) {

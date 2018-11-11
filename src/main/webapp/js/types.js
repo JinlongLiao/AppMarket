@@ -53,7 +53,7 @@ function upDateType(srcurl, cwdurl) {
 			success : function(data, textStatus, xhr) {
 				// called when successful
 				if (data.result) {
-					alert("修改失败成功");
+					alert("修改成功");
 					location.href = cwdurl;
 				} else {
 					alert("添加失败：" + data);

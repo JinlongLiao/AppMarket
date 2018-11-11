@@ -45,12 +45,19 @@ public class SessionFilter implements Filter {
 		// place your code here
 		HttpServletRequest httpServletRequest = (HttpServletRequest) request;
 		HttpSession session = httpServletRequest.getSession();
-//		if (null == session.getAttribute(Constant.SESSION.getName())) {
-//			httpServletRequest.getRequestDispatcher(UrlEnum.ADMIN.getUrl()).forward(request, response);
-//		} else {
+		String path = httpServletRequest.getRequestURI();
+		if (path.endsWith("admin/login")) {
+//			登录放行
+			chain.doFilter(request, response);
+			return;
+		}
+
+		if (null == session.getAttribute(Constant.SESSION.getName())) {
+			httpServletRequest.getRequestDispatcher(UrlEnum.ADMIN.getUrl()).forward(request, response);
+		} else {
 			// pass the request along the filter chain
 			chain.doFilter(request, response);
-//		}
+		}
 	}
 
 	/**

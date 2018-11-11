@@ -102,8 +102,10 @@ public class EditPro extends HttpServlet {
 								pname = fileItem.getString("utf-8");
 							} else if (name.equals("pmax")) {
 								pmax = fileItem.getString("utf-8");
+								pmax = StringUtil.isEmptyOrEmptyStr(pmax) ? "0" : pmax;
 							} else if (name.equals("pmin")) {
 								pmin = fileItem.getString("utf-8");
+								pmin = StringUtil.isEmptyOrEmptyStr(pmin) ? "0" : pmin;
 							} else if (name.equals("pdesc")) {
 								pdesc = fileItem.getString("utf-8");
 							} else if (name.equals("purl")) {
