@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.liaojl.shop.log.LogConfig;
 import com.liaojl.shop.model.Admin;
 import com.liaojl.shop.url.UrlEnum;
 import com.liaojl.shop.utils.Constant;
@@ -62,7 +63,7 @@ public class adminLogin extends HttpServlet {
 				return;
 			}
 			List<Map<String, Object>> lists = DatabaseHelper.execQuery(
-					"SELECT COUNT(1) count FROM TB_ADMIN  WHERE ADMIN_NAME=? ADMIN_PASS=?",
+					"SELECT COUNT(1) FROM TB_ADMIN  WHERE ADMIN_NAME=? AND ADMIN_PASS=?",
 					new String[] { name, MD5Utils.byteArrayToHexString(pwd.getBytes()) });
 			if (lists != null && lists.isEmpty()) {
 				int tmp = (illegalCache.get(name) == null) ? 1 : illegalCache.get(name) + 1;
@@ -72,7 +73,9 @@ public class adminLogin extends HttpServlet {
 			} else {
 				Admin admin = new Admin(name, pwd, new Timestamp(System.currentTimeMillis()), request.getRemoteHost());
 				request.getSession().setAttribute(Constant.SESSION.getName(), admin);
-				request.getRequestDispatcher(UrlEnum.ADMINMAIN.getUrl()).forward(request, response);
+//				request.getRequestDispatcher(UrlEnum.ADMINMAIN.getDesc()).forward(request, response);
+				response.sendRedirect("http://" + LogConfig.homeurl + ":" + request.getLocalPort()
+						+ request.getContextPath() + UrlEnum.ADMIN.getDesc());
 				return;
 			}
 

@@ -4,8 +4,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-	String basePath = "http://" +  LogConfig.homeurl + ":" + request.getLocalPort()
-			+ request.getContextPath();
+	String basePath = "http://" + LogConfig.homeurl + ":" + request.getLocalPort() + request.getContextPath();
 %>
 <jsp:include page="common.jsp"></jsp:include>
 
@@ -20,6 +19,7 @@
 					href="<%=basePath + UrlEnum.PRODUCT.getDesc()%>">所有商品 <span
 						class="sr-only">(current)</span></a></li>
 				<li><a href="<%=basePath + UrlEnum.TYPES.getDesc()%>">商品类型</a></li>
+				<li><a href="<%=basePath + UrlEnum.SUBNET.getDesc()%>">子网划分</a></li>
 			</ul>
 			<%-- 				<ul class="nav nav-sidebar">
 					<li><a href="">Nav item</a></li>
@@ -123,6 +123,31 @@
 		</div>
 		<!-- /.modal -->
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<div>
+				<h1 class="page-header">
+					主页换灯片展示
+					<button class="btn btn-primary btn-lg"
+						style="text-align: right; float: right; margin-right: 0.7 rem"
+						onclick="trancate()" id='mtitle'>显示</button>
+				</h1>
+
+			</div>
+			<div class="row placeholders" style="display: none" id='mcontent'>
+
+				<c:forEach items="${results}" var="item">
+					<div class="col-xs-6 col-sm-3 placeholder"
+						onclick="javascript:window.location.href='<%=basePath %>/admin/editPro?id=${item.GOODS_ID}&top=true'">
+						<img src="<%=basePath%>/upload/${item.GOODS_IMG}" width="200"
+							height="200" class="img-responsive"
+							alt="Generic placeholder thumbnail">
+						<h4>${item.GOODS_NAME}</h4>
+						<h4>产品类型：${item.TYPE_NAME}</h4>
+						<p style="color: red;">${item.GOODS_MIN_PRICE}至
+							${item.GOODS_MAX_PRICE}</p>
+						<span class="text-muted">${item.GOODS_DESC}</span>
+					</div>
+				</c:forEach>
+			</div>
 			<h1 class="page-header">产品展示</h1>
 			<div class="table-responsive">
 				<p>
@@ -183,3 +208,17 @@
 	</div>
 </div>
 </body>
+<script>
+	var flag = true;
+	function trancate() {
+		if (flag) {
+			$('#mtitle').text("隐藏");
+			$('#mcontent').css('display', 'block');
+			flag = false;
+		} else {
+			$('#mtitle').text("显示");
+			$('#mcontent').css('display', 'none');
+			flag = true;
+		}
+	}
+</script>

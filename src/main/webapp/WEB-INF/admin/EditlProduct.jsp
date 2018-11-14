@@ -20,6 +20,7 @@
 					href="<%=basePath + UrlEnum.PRODUCT.getDesc()%>">所有商品 <span
 						class="sr-only">(current)</span></a></li>
 				<li><a href="<%=basePath + UrlEnum.TYPES.getDesc()%>">商品类型</a></li>
+				<li><a href="<%=basePath + UrlEnum.SUBNET.getDesc()%>">子网划分</a></li>
 			</ul>
 			<%-- 				<ul class="nav nav-sidebar">
 					<li><a href="">Nav item</a></li>
@@ -39,7 +40,7 @@
 		<form class="form-horizontal" role="form" method="post"
 			enctype="multipart/form-data"
 			action="<%=basePath + UrlEnum.EDITPRO.getDesc()%>?edit=true${top}">
-			<input name="pid" value="${user.GOODS_ID }" style="display: none;"/>
+			<input name="pid" value="${user.GOODS_ID }" style="display: none;" />
 			<div class="form-group">
 				<label for="firstname" class="col-sm-2 control-label">产品名称</label>
 				<div class="col-sm-10">
@@ -74,7 +75,8 @@
 			</div>
 			<div class="form-group">
 				<label for="desc" class="col-sm-2 control-label">原图展示</label> <img
-					src="<%=basePath %>/upload/${user.GOODS_IMG}" style="width: 15%" class="img-rounded">
+					src="<%=basePath %>/upload/${user.GOODS_IMG}" style="width: 15%"
+					class="img-rounded">
 			</div>
 			<div class="form-group">
 				<label for="IMG" class="col-sm-2 control-label">图标</label>

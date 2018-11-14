@@ -20,6 +20,7 @@
 					href="<%=basePath + UrlEnum.PRODUCT.getDesc()%>">所有商品 <span
 						class="sr-only">(current)</span></a></li>
 				<li><a href="<%=basePath + UrlEnum.TYPES.getDesc()%>">商品类型</a></li>
+				<li><a href="<%=basePath + UrlEnum.SUBNET.getDesc()%>">子网划分</a></li>
 			</ul>
 			<%-- 				<ul class="nav nav-sidebar">
 					<li><a href="">Nav item</a></li>

@@ -30,6 +30,10 @@ public enum UrlEnum {
 	PPTIMGUPLOAD("/WEB-INF/admin/pptConfig.jsp", "/admin/pptupload"),
 	// PRO 上传
 	PROIMGUPLOAD("/admin/product", "/admin/proupload"),
+	// PRO 上传
+	SUBNET("/admin/subnet", "/WEB-INF/admin/subnet.jsp"),	
+	// PRO 上传
+	SUBNETREG("/index/subnet", "index/subnet"),
 //	
 	EDITPRO("/admin/editPro", "/WEB-INF/admin/EditlProduct.jsp");
 

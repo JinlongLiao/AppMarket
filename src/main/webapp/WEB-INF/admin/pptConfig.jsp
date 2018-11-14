@@ -4,8 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String basePath = "http://" + LogConfig.homeurl + ":" + request.getLocalPort()
-			+ request.getContextPath();
+	String basePath = "http://" + LogConfig.homeurl + ":" + request.getLocalPort() + request.getContextPath();
 %>
 <jsp:include page="common.jsp"></jsp:include>
 <div class="container-fluid">
@@ -20,6 +19,7 @@
 				</a></li>
 				<li><a href="<%=basePath + UrlEnum.TYPES.getDesc()%>">商品类型
 				</a></li>
+				<li><a href="<%=basePath + UrlEnum.SUBNET.getDesc()%>">子网划分</a></li>
 			</ul>
 			<%-- 				<ul class="nav nav-sidebar">
 					<li><a href="">Nav item</a></li>
@@ -105,8 +105,9 @@
 									href='<%=basePath %>/admin/editPro?id=${item.GOODS_ID}&top=true'
 									class="btn btn-primary">编辑</a>&nbsp;<c:if
 										test="${item.GOOS_STATU!=1}">
-										 <a class="btn btn-danger"
-											onclick='javascript:doUrl(true,"是否删除该产品","<%=basePath %>/admin/delete?top=true&id=${item.GOODS_ID}&status=0")'>删除</a>&nbsp;</c:if><%--<a
+										<a class="btn btn-danger"
+											onclick='javascript:doUrl(true,"是否删除该产品","<%=basePath %>/admin/delete?top=true&id=${item.GOODS_ID}&status=0")'>删除</a>&nbsp;</c:if>
+									<%--<a
 									class="btn btn-success">↑↑</a>&nbsp;<a class="btn btn-success">↓↓</a> --%></td>
 							</tr>
 						</c:forEach>
@@ -172,7 +173,7 @@
 
 				<div class="form-group">
 					<div class="col-sm-offset-5 col-sm-5">
-						<button type="submit" class="btn btn-info">登录</button>
+						<button type="submit" class="btn btn-info">提交</button>
 						<button type="reset" class="btn btn-danger">重置</button>
 					</div>
 				</div>
