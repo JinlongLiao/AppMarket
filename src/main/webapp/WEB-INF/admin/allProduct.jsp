@@ -137,6 +137,7 @@
 						<table class="table  table-striped">
 							<thead>
 								<tr>
+									<th>子链接名称</th>
 									<th>链接URL</th>
 									<th>访问量</th>
 								</tr>

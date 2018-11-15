@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -22,6 +24,7 @@ import com.liaojl.shop.log.LogConfig;
 import com.liaojl.shop.url.UrlEnum;
 import com.liaojl.shop.utils.DatabaseHelper;
 import com.liaojl.shop.utils.StringUtil;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  * Servlet implementation class SubNet
@@ -46,18 +49,17 @@ public class SubNet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String json = null;
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=utf-8");
 		// TODO Auto-generated method stub
 		if (!StringUtil.isEmptyOrEmptyStr(request.getParameter("search"))) {
 			List<Map<String, Object>> suburls = DatabaseHelper.execQuery(
 					"SELECT NET_URL FROM TB_SUBNET WHERE GOODS_ID=?", new String[] { request.getParameter("gid") });
 			json = JSONObject.toJSON(suburls).toString();
-			response.setCharacterEncoding("UTF-8");
 			response.setContentType("application/json; charset=utf-8");
-			PrintWriter writer = response.getWriter();
 			json = "{\"result\":true,\"datas\":" + json + "}";
-			writer.write(json);
-			writer.flush();
-			writer.close();
+			response.getWriter().write(json);
+
 			return;
 		}
 
@@ -66,30 +68,30 @@ public class SubNet extends HttpServlet {
 			String id = request.getParameter("gid");
 //			获取URL
 			List<Map<String, Object>> srcUrlMap = DatabaseHelper.execQuery(
-					"SELECT GOODS_ID FROM VW_BOTH_GOODS WHERE GOODS_ID=? AND GOOS_STATU=?", new Object[] { id, 1 });
+					"SELECT GOODS_ID,GOODS_NAME FROM VW_BOTH_GOODS WHERE GOODS_ID=? AND GOOS_STATU=?",
+					new Object[] { id, 1 });
 			if (srcUrlMap == null || srcUrlMap.isEmpty()) {
-				response.setCharacterEncoding("UTF-8");
-				response.setContentType("application/json; charset=utf-8");
-				PrintWriter writer = response.getWriter();
 				json = "{\"result\":false,\"datas\":[\"GOODS_ID\":\"输入产品信息有误 \" }";
-				writer.write(json);
-				writer.flush();
-				writer.close();
+				response.getWriter().write(json);
 				return;
 			} else {
 				String gid = String.valueOf(srcUrlMap.get(0).get("GOODS_ID"));
+				String gName = String.valueOf(srcUrlMap.get(0).get("GOODS_NAME"));
 				String basePath = "http://" + LogConfig.homeurl + ":" + request.getLocalPort()
-						+ request.getContextPath()+"/";
+						+ request.getContextPath() + "/";
 				Connection conn = DatabaseHelper.getConnection();
+				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 				try {
 					conn.setAutoCommit(false);
-					PreparedStatement ps = conn
-							.prepareStatement("INSERT INTO TB_SUBNET (NET_ID, NET_URL, GOODS_ID) VALUES (?, ?, ?)");
+					PreparedStatement ps = conn.prepareStatement(
+							"INSERT INTO TB_SUBNET (NET_ID, NET_URL, GOODS_ID,NET_NAME) VALUES (?, ?, ?,?)");
 					for (int i = 0; i < num; i++) {
 						String uid = UUID.randomUUID().toString();
 						ps.setString(1, uid);
 						ps.setString(2, basePath + UrlEnum.SUBNETREG.getUrl() + "?uid=" + uid);
 						ps.setString(3, gid);
+
+						ps.setString(4, gName + "_" + sdf.format(new Date()) + i);
 						ps.addBatch();
 						if ((num % 1000) == 0) {
 							ps.executeBatch();
@@ -114,13 +116,10 @@ public class SubNet extends HttpServlet {
 			List<Map<String, Object>> suburls = DatabaseHelper
 					.execQuery("SELECT NET_URL FROM TB_SUBNET WHERE GOODS_ID=?", new String[] { id });
 			json = JSONObject.toJSON(suburls).toString();
-			response.setCharacterEncoding("UTF-8");
-			response.setContentType("application/json; charset=utf-8");
-			PrintWriter writer = response.getWriter();
+			// 这些设置必须要放在getWriter的方法之前，
 			json = "{\"result\":true,\"datas\":" + json + "}";
-			writer.write(json);
-			writer.flush();
-			writer.close();
+			response.getWriter().write(json);
+
 			return;
 		}
 

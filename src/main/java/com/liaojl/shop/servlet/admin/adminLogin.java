@@ -57,13 +57,13 @@ public class adminLogin extends HttpServlet {
 
 		if (StringUtil.isNotEmpty(name) || StringUtil.isNotEmpty(pwd)) {
 			Integer times = illegalCache.get(name);
-			if (times != null && times <= 3) {
+			if (times != null && times >= 3) {
 				request.setAttribute("msg", "<script>alert('登录失败次数超过3次,半小时后重试')</script>");
 				request.getRequestDispatcher(UrlEnum.ADMIN.getUrl()).forward(request, response);
 				return;
 			}
 			List<Map<String, Object>> lists = DatabaseHelper.execQuery(
-					"SELECT COUNT(1) FROM TB_ADMIN  WHERE ADMIN_NAME=? AND ADMIN_PASS=?",
+					"SELECT * FROM TB_ADMIN  WHERE ADMIN_NAME=? AND ADMIN_PASS=?",
 					new String[] { name, MD5Utils.byteArrayToHexString(pwd.getBytes()) });
 			if (lists != null && lists.isEmpty()) {
 				int tmp = (illegalCache.get(name) == null) ? 1 : illegalCache.get(name) + 1;
@@ -72,6 +72,7 @@ public class adminLogin extends HttpServlet {
 				request.getRequestDispatcher(UrlEnum.ADMIN.getUrl()).forward(request, response);
 			} else {
 				Admin admin = new Admin(name, pwd, new Timestamp(System.currentTimeMillis()), request.getRemoteHost());
+				admin.setId(lists.get(0).get("ADMIN_ID"));
 				request.getSession().setAttribute(Constant.SESSION.getName(), admin);
 //				request.getRequestDispatcher(UrlEnum.ADMINMAIN.getDesc()).forward(request, response);
 				response.sendRedirect("http://" + LogConfig.homeurl + ":" + request.getLocalPort()

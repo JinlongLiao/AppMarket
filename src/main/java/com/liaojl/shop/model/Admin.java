@@ -7,6 +7,15 @@ public class Admin {
 	public String pwd;
 	public Date date;
 	public String ip;
+	public String id;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(Object object) {
+		this.id = (String) object;
+	}
 
 	public Admin() {
 		super();

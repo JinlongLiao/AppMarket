@@ -47,6 +47,7 @@ public class SubNetInfo extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		response.setContentType("application/json; charset=utf-8");
 		String uid = request.getParameter("uid");
 		if (StringUtil.isEmptyOrEmptyStr(uid)) {
 			response.getWriter().write("{\"result\":false}");

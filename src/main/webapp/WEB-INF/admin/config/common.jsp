@@ -136,9 +136,9 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active "><a
+					<li><a
 						href="<%=basePath + UrlEnum.ADMINMAIN.getDesc()%>">业务管理</a></li>
-					<li><a href="<%=basePath %>/admin/serverconfig">系统设置</a></li>
+					<li class="active "><a href="<%=basePath %>/admin/serverconfig">系统设置</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
