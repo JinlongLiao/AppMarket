@@ -43,7 +43,7 @@ public class AdminServlet extends HttpServlet {
 		List<Map<String, Object>> results = DatabaseHelper.execQuery(sql, null);
 		for (Map<String, Object> map : results) {
 			if (!FileMove.IsExists(String.valueOf(map.get("GOODS_IMG")))) {
-				map.replace("GOODS_IMG", "default.gif");
+				map.replace("GOODS_IMG", "default.jpg");
 			}
 		}
 		String sql2 = "SELECT * FROM VW_ALL_GOODS";

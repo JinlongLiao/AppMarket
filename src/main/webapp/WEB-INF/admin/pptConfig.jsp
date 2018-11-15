@@ -34,6 +34,42 @@
 					<li><a href="">Another nav item</a></li>
 				</ul> --%>
 		</div>
+		<!-- modal 模态框2 -->
+		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"
+							aria-hidden="true">×</button>
+						<h4 class="modal-title" id="myModalLabel">子链接流量展示</h4>
+						<h4 class="modal-title" id="medit" style="display: none;">修改</h4>
+					</div>
+					<div class="modal-body">
+						<table class="table  table-striped">
+							<thead>
+								<tr>
+									<th>链接URL</th>
+									<th>访问量</th>
+								</tr>
+							</thead>
+							<tbody id='inner'>
+
+							</tbody>
+						</table>
+
+					</div>
+					<!-- <div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary">提交更改</button>
+					</div> -->
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal2 -->
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<div>
 				<h1 class="page-header">
@@ -96,11 +132,14 @@
 										<c:when test="${item.GOOS_STATU==1}">正常  </c:when>
 										<c:otherwise>失效   </c:otherwise>
 									</c:choose></td>
-								<td><c:if test="${item.GOOS_STATU!=1}">
+								<td><a class="btn btn-primary " data-toggle="modal"
+									data-target="#myModal2"
+									onclick="getSubNetInfo('${item.GOODS_ID}')">子链接详情</a>&nbsp; <c:if
+										test="${item.GOOS_STATU!=1}">
 										<a class="btn btn-info "
 											onclick='javascript:doUrl(true,"是否启用该产品","<%=basePath %>/admin/delete?top=true&edit=true&id=${item.GOODS_ID}&status=1")'>启用</a>&nbsp;</c:if>
 									<c:if test="${item.GOOS_STATU==1}">
-										<a class="btn btn-info "
+										<a class="btn btn-danger "
 											onclick='javascript:doUrl(true,"是否注销该产品","<%=basePath %>/admin/delete?top=true&edit=true&id=${item.GOODS_ID}&status=0")'>注销</a>&nbsp;</c:if><a
 									href='<%=basePath %>/admin/editPro?id=${item.GOODS_ID}&top=true'
 									class="btn btn-primary">编辑</a>&nbsp;<c:if

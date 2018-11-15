@@ -79,7 +79,7 @@ public class SubNet extends HttpServlet {
 			} else {
 				String gid = String.valueOf(srcUrlMap.get(0).get("GOODS_ID"));
 				String basePath = "http://" + LogConfig.homeurl + ":" + request.getLocalPort()
-						+ request.getContextPath();
+						+ request.getContextPath()+"/";
 				Connection conn = DatabaseHelper.getConnection();
 				try {
 					conn.setAutoCommit(false);

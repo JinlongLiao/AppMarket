@@ -25,9 +25,9 @@ import javax.imageio.ImageIO;
 
 import org.apache.log4j.Logger;
 
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGEncodeParam;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
+//import com.sun.image.codec.jpeg.JPEGCodec;
+//import com.sun.image.codec.jpeg.JPEGEncodeParam;
+//import com.sun.image.codec.jpeg.JPEGImageEncoder;
 
 /**
  * 图片处理工具类：<br>
@@ -497,46 +497,46 @@ public class ImageUtils {
 	 * 
 	 * 
 	 */
-	public static boolean createThumbnail(String src, String dist, float width, float height, boolean flag) {
-		boolean flag1 = false;
-		try {
-			File srcfile = new File(src);
-			if (!srcfile.exists()) {
-				System.out.println("文件不存在");
-				return flag1;
-			}
-			BufferedImage image = ImageIO.read(srcfile);
-
-			// 获得缩放的比例
-
-			double ratio = 1.0;
-			// 判断如果高、宽都不大于设定值，则不处理
-			if (image.getHeight() > height || image.getWidth() > width) {
-				if (image.getHeight() > image.getWidth()) {
-					ratio = height / image.getHeight();
-				} else {
-					ratio = width / image.getWidth();
-				}
-			}
-			int newWidth = flag ? (int) width : (int) (image.getWidth() * ratio);
-			int newHeight = flag ? (int) height : (int) (image.getHeight() * ratio);
-			BufferedImage bfImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_RGB);
-			flag1 = bfImage.getGraphics().drawImage(image.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH), 0,
-					0, null);
-
-			FileOutputStream os = new FileOutputStream(dist);
-
-			JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os);
-			JPEGEncodeParam jParam = encoder.getDefaultJPEGEncodeParam(bfImage);
-			jParam.setQuality(1f, false);
-			encoder.encode(bfImage);
-			os.close();
-			flag1 = true;
-		} catch (Exception e) {
-			flag1 = false;
-		}
-		return flag1;
-	}
+//	public static boolean createThumbnail(String src, String dist, float width, float height, boolean flag) {
+//		boolean flag1 = false;
+//		try {
+//			File srcfile = new File(src);
+//			if (!srcfile.exists()) {
+//				System.out.println("文件不存在");
+//				return flag1;
+//			}
+//			BufferedImage image = ImageIO.read(srcfile);
+//
+//			// 获得缩放的比例
+//
+//			double ratio = 1.0;
+//			// 判断如果高、宽都不大于设定值，则不处理
+//			if (image.getHeight() > height || image.getWidth() > width) {
+//				if (image.getHeight() > image.getWidth()) {
+//					ratio = height / image.getHeight();
+//				} else {
+//					ratio = width / image.getWidth();
+//				}
+//			}
+//			int newWidth = flag ? (int) width : (int) (image.getWidth() * ratio);
+//			int newHeight = flag ? (int) height : (int) (image.getHeight() * ratio);
+//			BufferedImage bfImage = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_RGB);
+//			flag1 = bfImage.getGraphics().drawImage(image.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH), 0,
+//					0, null);
+//
+//			FileOutputStream os = new FileOutputStream(dist);
+//
+//			JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(os);
+//			JPEGEncodeParam jParam = encoder.getDefaultJPEGEncodeParam(bfImage);
+//			jParam.setQuality(1f, false);
+//			encoder.encode(bfImage);
+//			os.close();
+//			flag1 = true;
+//		} catch (Exception e) {
+//			flag1 = false;
+//		}
+//		return flag1;
+//	}
 
 	/**
 	 * 计算text的长度（一个中文算两个字符）

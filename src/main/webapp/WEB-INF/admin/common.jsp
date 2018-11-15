@@ -93,6 +93,19 @@
 			window.location.href = url;
 		}
 	}
+	function getSubNetInfo(uid) {
+		$.post('<%=basePath %>/admin/subnetinfo', {'uid': uid}, function(data, textStatus, xhr) {
+			/*optional stuff to do after success */
+			console.log(data);
+			var mhtml='';
+			if(data.result){
+				data.datas.forEach(function(value,index,array){
+					mhtml = mhtml+'<tr><td>'+array[index].NET_URL+'</td><td>'+array[index].NET_SEE+'</td></tr>'
+			})
+					$('#inner').html(mhtml);
+			}
+		},'json');
+	}
 </script>
 <body>
 
