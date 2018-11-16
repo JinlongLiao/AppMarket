@@ -19,7 +19,7 @@ import com.liaojl.shop.utils.StringUtil;
 /**
  * Servlet implementation class SubNetInterface
  */
-@WebServlet("/index/subnet")
+@WebServlet("/index/st")
 public class SubNetInterface extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(UserSession.class);
@@ -39,7 +39,7 @@ public class SubNetInterface extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String uid = request.getParameter("uid");
+		String uid = request.getParameter("u");
 		if (StringUtil.isEmptyOrEmptyStr(uid)) {
 			response.getWriter().write("{\"error\":false}");
 			return;

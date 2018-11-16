@@ -33,7 +33,7 @@ public enum UrlEnum {
 	// PRO 上传
 	SUBNET("/admin/subnet", "/WEB-INF/admin/subnet.jsp"),	
 	// PRO 上传
-	SUBNETREG("/index/subnet", "index/subnet"),
+	SUBNETREG("/index/st", "index/subnet"),
 //	
 	EDITPRO("/admin/editPro", "/WEB-INF/admin/EditlProduct.jsp");
 

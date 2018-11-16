@@ -79,6 +79,9 @@ public class SubNet extends HttpServlet {
 				String gName = String.valueOf(srcUrlMap.get(0).get("GOODS_NAME"));
 				String basePath = "http://" + LogConfig.homeurl + ":" + request.getLocalPort()
 						+ request.getContextPath() + "/";
+				if (request.getLocalPort() == 80) {
+					basePath = "http://" + LogConfig.homeurl + request.getContextPath() + "/";
+				}
 				Connection conn = DatabaseHelper.getConnection();
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
 				try {
@@ -88,7 +91,7 @@ public class SubNet extends HttpServlet {
 					for (int i = 0; i < num; i++) {
 						String uid = StringUtil.getCode(5);
 						ps.setString(1, uid);
-						ps.setString(2, basePath + UrlEnum.SUBNETREG.getUrl() + "?uid=" + uid);
+						ps.setString(2, basePath + UrlEnum.SUBNETREG.getUrl() + "?u=" + uid);
 						ps.setString(3, gid);
 
 						ps.setString(4, gName + "_" + sdf.format(new Date()) + i);

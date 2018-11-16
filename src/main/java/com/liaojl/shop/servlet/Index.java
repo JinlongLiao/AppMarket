@@ -31,6 +31,8 @@ public class Index extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		System.out.println(request.getContextPath());
 		List<Map<String, Object>> tops = DatabaseHelper.execQuery("SELECT * FROM VW_ALL_GOODS_TOP WHERE GOOS_STATU =1 ",
 				null);
 		List<Map<String, Object>> goods = DatabaseHelper

@@ -35,7 +35,7 @@ public class StringUtil {
 		Random random = new Random();
 		for (int i = 0; i < codes.length(); i++) {
 			char c = codes.charAt(random.nextInt(codes.length()));
-			System.out.println(c);
+//			System.out.println(c);
 			if (sb.length() == length)
 				break;
 			if (!sb.toString().contains(c + ""))
