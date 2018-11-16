@@ -19,7 +19,7 @@ import com.liaojl.shop.utils.StringUtil;
 /**
  * Servlet implementation class SubNetInterface
  */
-@WebServlet("/index/st")
+@WebServlet("/index/s")
 public class SubNetInterface extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final Logger logger = Logger.getLogger(UserSession.class);

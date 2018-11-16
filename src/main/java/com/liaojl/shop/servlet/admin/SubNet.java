@@ -89,7 +89,7 @@ public class SubNet extends HttpServlet {
 					PreparedStatement ps = conn.prepareStatement(
 							"INSERT INTO TB_SUBNET (NET_ID, NET_URL, GOODS_ID,NET_NAME) VALUES (?, ?, ?,?)");
 					for (int i = 0; i < num; i++) {
-						String uid = StringUtil.getCode(5);
+						String uid = StringUtil.getCode(4);
 						ps.setString(1, uid);
 						ps.setString(2, basePath + UrlEnum.SUBNETREG.getUrl() + "?u=" + uid);
 						ps.setString(3, gid);
