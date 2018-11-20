@@ -39,7 +39,7 @@
       <script src="<%=basePath%>/js/respond.min.js"></script>
     <![endif]-->
 <style type="text/css">
-.navbar-inverse {
+/* .navbar-inverse {
 	background-color: #f5f5f5;
 	border-color: #080808;
 }
@@ -48,7 +48,7 @@
 	.navbar-inverse .navbar-nav>.active>a:hover {
 	color: #fff;
 	background-color: #428bca;
-}
+} */
 </style>
 </head>
 <!-- Bootstrap core JavaScript
@@ -95,28 +95,47 @@
 	}
 	function getSubNetInfo(uid) {	
 		$.ajax({
-			url: '<%=basePath %>/admin/subnetinfo',
-			type: 'POST',
-			dataType: 'json',
-			data: {'uid': uid},
-		})
-		.done(function(data) {
-			console.log("success");
-			console.log(data);
-			var mhtml='';
-			if(data.result){
-				data.datas.forEach(function(value,index,array){
-					mhtml = mhtml+'<tr><td>'+array[index].NET_NAME+'</td><td>'+array[index].NET_URL+'</td><td>'+array[index].NET_SEE+'</td></tr>'
-			})
-					$('#inner').html(mhtml);
-			}
-		})
-		.fail(function() {
+			url: '<%=basePath%>/admin/subnetinfo',
+			type : 'POST',
+			dataType : 'json',
+			data : {
+				'uid' : uid
+			},
+		}).done(
+				function(data) {
+					console.log("success");
+					console.log(data);
+					var mhtml = '';
+					if (data.result) {
+						data.datas.forEach(function(value, index, array) {
+							mhtml = mhtml + '<tr><td>' + array[index].NET_NAME
+									+ '</td><td>' + array[index].NET_URL
+									+ '</td><td>' + array[index].NET_SEE
+									+ '</td></tr>'
+						})
+						$('#inner').html(mhtml);
+					}
+				}).fail(function() {
 			console.log("error");
-		})
-		.always(function() {
+		}).always(function() {
 			console.log("complete");
 		});
+	}
+
+
+	function showSlider() {
+		var slider = $('.sidebar');
+		var display = slider.css('display')
+		if (display == 'none') {
+			slider.css({
+				"display" : "block"
+			});
+		}
+		if (document.body.clientWidth < 768 && display != 'none') {
+			slider.css({
+				"display" : "none"
+			});
+		}
 	}
 </script>
 <body>
@@ -131,14 +150,15 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand"
-					href="<%=basePath + UrlEnum.ADMINMAIN.getDesc()%>">贷款超市后台</a>
+				<%-- 				<a class="navbar-brand"
+					href="<%=basePath + UrlEnum.ADMINMAIN.getDesc()%>">贷款超市后台</a> --%>
+				<a class="navbar-brand" href="javascript:void(0)" onclick="showSlider()">贷款超市后台</a>
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active "><a
 						href="<%=basePath + UrlEnum.ADMINMAIN.getDesc()%>">业务管理</a></li>
-					<li><a href="<%=basePath %>/admin/serverconfig">系统设置</a></li>
+					<li><a href="<%=basePath%>/admin/serverconfig">系统设置</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->

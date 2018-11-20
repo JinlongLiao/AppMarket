@@ -162,7 +162,7 @@
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			<div>
 				<h1 class="page-header">
-					主页换灯片展示
+					产品图片展示
 					<button class="btn btn-primary btn-lg"
 						style="text-align: right; float: right; margin-right: 0.7 rem"
 						onclick="trancate()" id='mtitle'>显示</button>

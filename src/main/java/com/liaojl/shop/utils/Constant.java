@@ -1,7 +1,7 @@
 package com.liaojl.shop.utils;
 
 public enum Constant {
-	SESSION("USER", ""),SEE("SEE","");
+	SESSION("USER", ""),URL("", ""),SEE("SEE","");
 
 	Constant(String name, Object object) {
 		this.name = name;

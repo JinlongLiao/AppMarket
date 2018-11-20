@@ -41,7 +41,7 @@
 	width: 100%;
 	text-align: center;
 	color: red;
-	font-size: 1.4rem;
+	font-size: 1.2rem;
 	font-style: initial;
 	text-align: center;
 	font-style: initial;
@@ -119,23 +119,22 @@
 
 		<div class="shopMain" id="shopmain">
 			<div>
-				<div class='news am-icon-fire'>公告</div>
+				<div class='news am-icon-fire'>温馨提示</div>
 				<div class='show-content'>
 					<ul id="box">
-						<li style="font-size: 14px; display: none;">1任何需要收费的项目都不要购买！！！</li>
-						<li style="font-size: 14px; display: none;">2最新贷款平台每天实时更新，广大客户放心使用</li>
-						<li style="font-size: 14px; display: none;">3任何需要收费的项目都不要购买！！！</li>
-						<li style="font-size: 14px; display: none;">4最新贷款平台每天实时更新，广大客户放心使用</li>
+						<li style="font-size: 14px;color: red">任何需要收费的项目都不要购买！！！</li>
+						<li style="font-size: 14px; display: none;color: red">最新贷款平台每天实时更新，广大客户放心使用</li>
+						<li style="font-size: 14px; display: none;color: red">任何需要收费的项目都不要购买！！！</li>
+						<li style="font-size: 14px; display: none;color: red">最新贷款平台每天实时更新，广大客户放心使用</li>
 					</ul>
 				</div>
 			</div>
 			<!--热门活动 -->
 
 			<div class="am-container activity ">
-				<div class="shopTitle ">
+				<!-- <div class="shopTitle ">
 					<h4>您身边的贷款便利</h4>
-					<h3>带给您享不停的优惠活动</h3>
-				</div>
+				</div> -->
 				<div class="am-g am-g-fixed ">
 					<c:forEach items="${goods}" var="item" varStatus="status">
 

@@ -54,4 +54,8 @@ public class MD5Utils {
 		return hexDigIts[d1] + hexDigIts[d2];
 	}
 
+	public static void main(String[] args) {
+		System.out.println(8888);
+		System.out.println(byteArrayToHexString("root123".getBytes()));
+	}
 }

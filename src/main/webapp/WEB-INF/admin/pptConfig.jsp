@@ -99,12 +99,6 @@
 			</div>
 			<h1 class="page-header">产品展示</h1>
 			<div class="table-responsive">
-				<p>
-					<button class="btn btn-primary btn-lg" data-toggle="modal"
-						data-target="#myModal"
-						style="text-align: right; float: right; margin-right: 0.7 rem">
-						添加</button>
-				</p>
 				<table class="table table-striped">
 					<thead>
 						<tr>

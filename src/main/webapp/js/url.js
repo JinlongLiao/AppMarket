@@ -46,7 +46,7 @@ if ($(window).width() < 640) {
 }
 
 $(function() {
-	var delay = 1000;
+	var delay = 3000;
 	var list=$('#box li');
 	var index=0;
 	var length=list.length;
