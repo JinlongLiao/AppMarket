@@ -7,7 +7,7 @@ function doUrl(logUrl,tocurl,id) {
 				goodid :id			},
 			complete : function(xhr, textStatus) {
 				// called when complete
-				window.open(tocurl);
+				location.href =tocurl;
 			}
 		});
 }
@@ -46,7 +46,7 @@ if ($(window).width() < 640) {
 }
 
 $(function() {
-	var delay = 3000;
+	var delay = 5000;
 	var list=$('#box li');
 	var index=0;
 	var length=list.length;
