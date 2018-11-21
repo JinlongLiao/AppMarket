@@ -57,3 +57,4 @@ local.properties
 /target
 /*.project
 /*.classpath
+/src/main/java/snippet
