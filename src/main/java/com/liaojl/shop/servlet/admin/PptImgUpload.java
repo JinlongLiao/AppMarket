@@ -54,7 +54,7 @@ public class PptImgUpload extends HttpServlet {
 		Connection con = DatabaseHelper.getConnection();
 		try {
 			pre = con.prepareStatement(
-					"INSERT INTO TB_GOODS_TOP (GOODS_ID, GOODS_NAME, GOODS_TYPE, GOODS_MIN_PRICE, GOODS_MAX_PRICE, GOODS_DESC, GOODS_URL, GOODS_IMG) VALUES (?,?,?,?,?,?,?,?)");
+					"INSERT INTO TB_GOODS_TOP (GOODS_ID, GOODS_NAME, GOODS_TYPE, GOODS_MIN_PRICE, GOODS_MAX_PRICE, GOODS_DESC, GOODS_URL,GOODS_BFB, GOODS_IMG) VALUES (?,?,?,?,?,?,?,?,?)");
 			pre.setString(1, UUID.randomUUID().toString());
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
@@ -94,6 +94,9 @@ public class PptImgUpload extends HttpServlet {
 							pre.setString(7, fileItem.getString("utf-8"));
 						} else if (name.equals("ptype")) {
 							pre.setString(3, fileItem.getString("utf-8"));
+						} else if (name.equals("pbfb")) {
+							String bfb=fileItem.getString("utf-8");
+							pre.setString(8,StringUtil.isEmptyOrEmptyStr(bfb)?"100":bfb);
 						}
 						String value = fileItem.getString("utf-8");// name对应的value值
 						logger.debug(name + " = " + value);
@@ -115,7 +118,7 @@ public class PptImgUpload extends HttpServlet {
 						file.delete();
 						// 6. 调用FileItem的delete()方法，删除临时文件
 						fileItem.delete();
-						pre.setString(8, newFileName);
+						pre.setString(9, newFileName);
 						/*
 						 * 存储到数据库时注意 1.保存源文件名称 Koala.jpg 2.保存相对路径 image/1478509873038.jpg
 						 * 
@@ -127,6 +130,8 @@ public class PptImgUpload extends HttpServlet {
 				}
 			} catch (FileUploadException e) {
 				logger.error(e);
+				response.sendRedirect(request.getContextPath() + UrlEnum.PPTCONFIG.getDesc());
+
 			} catch (Exception e) {
 				logger.error(e.getMessage(), e);
 			}

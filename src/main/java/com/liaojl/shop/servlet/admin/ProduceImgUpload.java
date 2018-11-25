@@ -59,7 +59,7 @@ public class ProduceImgUpload extends HttpServlet {
 		Connection con = DatabaseHelper.getConnection();
 		try {
 			pre = con.prepareStatement(
-					"INSERT INTO TB_GOODS (GOODS_ID, GOODS_NAME, GOODS_TYPE, GOODS_MIN_PRICE, GOODS_MAX_PRICE, GOODS_DESC, GOODS_URL, GOODS_IMG) VALUES (?,?,?,?,?,?,?,?)");
+					"INSERT INTO TB_GOODS (GOODS_ID, GOODS_NAME, GOODS_TYPE, GOODS_MIN_PRICE, GOODS_MAX_PRICE, GOODS_DESC, GOODS_URL, GOODS_IMG,GOODS_BFB) VALUES (?,?,?,?,?,?,?,?,?)");
 			pre.setString(1, UUID.randomUUID().toString());
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
@@ -99,6 +99,9 @@ public class ProduceImgUpload extends HttpServlet {
 							pre.setString(7, fileItem.getString("utf-8"));
 						} else if (name.equals("ptype")) {
 							pre.setString(3, fileItem.getString("utf-8"));
+						} else if (name.equals("pbfb")) {
+							String bfb=fileItem.getString("utf-8");
+							pre.setString(9,StringUtil.isEmptyOrEmptyStr(bfb)?"100":bfb);
 						}
 						String value = fileItem.getString("utf-8");// name对应的value值
 						logger.debug(name + " = " + value);

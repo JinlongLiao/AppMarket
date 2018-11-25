@@ -141,8 +141,8 @@
 						<div class="am-u-sm-4 "
 							onclick="doUrl('<%=basePath%>/index/DoLog','${item. GOODS_URL}','${item. GOODS_ID}')">
 							<div class="icon-sale C${staus.index%2} "></div>
-							<h4>${item. TYPE_NAME}</h4>
-							<div class="activityMain ">
+<%-- 							<h4>${item. TYPE_NAME}</h4>
+ --%>							<div class="activityMain ">
 								<img src="<%=basePath%>/upload/${item. GOODS_IMG}"></img>
 							</div>
 							<div class="info ">
@@ -150,6 +150,9 @@
 								<p style="font-size: 10px;">${item. GOODS_MIN_PRICE}-${item. GOODS_MAX_PRICE}</p>
 								<p>
 									<span style="font-size: 8px;">${item. GOODS_SEE}</span>人申请
+								</p>
+										<p>放款率：
+									<span style="font-size: 8px;">${item. GOODS_BFB}%</span>
 								</p>
 							</div>
 						</div>

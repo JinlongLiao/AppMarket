@@ -52,22 +52,22 @@
 							<div class="form-group">
 								<label for="firstname" class="col-sm-2 control-label">产品名称</label>
 								<div class="col-sm-10">
-									<input type="text" name="pname" class="form-control"
+									<input type="text"  required="required"  name="pname" class="form-control"
 										id="firstname" placeholder="请输入产品名称">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="lastname" class="col-sm-2 control-label">产品链接</label>
 								<div class="col-sm-10">
-									<input type="text" name='purl' class="form-control"
+									<input type="url"  required="required"  name='purl' class="form-control"
 										id="lastname" placeholder="请输入网址">
 								</div>
 
 							</div>
 							<div class="form-group">
-								<label for="lastname" class="col-sm-2 control-label">产品类型</label>
+								<label for="lastname"   class="col-sm-2 control-label">产品类型</label>
 								<div class="col-sm-10">
-									<select class="selectpicker" name="ptype">
+									<select class="selectpicker" required="required"  name="ptype">
 										<c:forEach items="${types}" var="item">
 											<option value="${item.TYPE_ID }">${item.TYPE_NAME }</option>
 										</c:forEach>
@@ -92,16 +92,21 @@
 							<div class="form-group">
 								<label for="min" class="col-sm-2 control-label">发款最小值：</label>
 								<div class="col-sm-offset-2 col-sm-5">
-									<input type="number" name='pmin' class="form-control" id='min' />
+									<input  required="required"  type="number" name='pmin' class="form-control" id='min' />
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="min" class="col-sm-2 control-label">发款最大值：</label>
 								<div class="col-sm-offset-2 col-sm-5">
-									<input type="number" name='pmax' class="form-control" id='max' />
+									<input  required="required"  type="number" name='pmax' class="form-control" id='max' />
 								</div>
 							</div>
-
+				<div class="form-group">
+					<label for="bfb" class="col-sm-2 control-label">发款百分百：</label>
+					<div class="col-sm-offset-2 col-sm-5">
+						<input type="number" name='pbfb' max="100" min="1" required="required" class="form-control" id='bfb' />
+					</div>
+				</div>
 							<div class="form-group">
 								<div class="col-sm-offset-5 col-sm-5">
 									<button type="submit" class="btn btn-info">提交</button>
@@ -200,6 +205,7 @@
 							<th>名称</th>
 							<th>类型</th>
 							<th>链接地址</th>
+							<th>放款百分比</th>
 							<th>浏览量</th>
 							<th>放款区间</th>
 							<th>描述</th>
@@ -214,6 +220,7 @@
 								<td>${item.GOODS_NAME}</td>
 								<td>${item.TYPE_NAME}</td>
 								<td>${item.GOODS_URL}</td>
+								<td>${item.GOODS_BFB}%</td>
 								<td>${item.GOODS_SEE}</td>
 								<td>${item.GOODS_MIN_PRICE}至${item.GOODS_MAX_PRICE}</td>
 								<td>${item.GOODS_DESC}</td>

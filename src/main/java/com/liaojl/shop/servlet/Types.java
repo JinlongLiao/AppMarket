@@ -50,7 +50,7 @@ public class Types extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String basePath = "http://" +  LogConfig.homeurl + ":" + request.getLocalPort() + request.getContextPath();
+		String basePath = "http://" + LogConfig.homeurl + ":" + request.getLocalPort() + request.getContextPath();
 
 		List<Map<String, Object>> tops = DatabaseHelper.execQuery("SELECT * FROM VW_ALL_GOODS_TOP WHERE GOOS_STATU =1 ",
 				null);
@@ -60,6 +60,7 @@ public class Types extends HttpServlet {
 			if (!FileMove.IsExists(String.valueOf(map.get("GOODS_IMG")))) {
 				map.replace("GOODS_IMG", "default.jpg");
 			}
+			map.put("GOODS_SEE", (long) (map.getOrDefault("GOODS_SEE", 0)) + LogConfig.basesize);
 		}
 		Map<String, List<Map<String, Object>>> goodsByType = new HashMap<>();
 		for (Map<String, Object> map : allGoods) {
@@ -79,8 +80,9 @@ public class Types extends HttpServlet {
 						+ map.get("GOODS_ID") + "')\" style='height: 100%' src='" + basePath + "/upload/"
 						+ map.get("GOODS_IMG") + "'>" + "</img> <a title='" + map.get("GOODS_NAME")
 						+ "' href=''><span><p>" + map.get("GOODS_NAME") + "</p>	<p>" + map.get("GOODS_MIN_PRICE") + "-"
-						+ map.get("GOODS_MAX_PRICE") + "</p><p><span>" + map.get("GOODS_SEE")
-						+ "</span>人申请</p></span></a></dd>");
+						+ map.get("GOODS_MAX_PRICE") + "</p><p><span>"
+						+ ((long)map.getOrDefault("GOODS_SEE", 0) + LogConfig.basesize)
+						+ "</span>人申请</p></span><span>放款率："+map.getOrDefault("GOODS_BFB",100)+"%</span></a></dd>");
 			}
 			html.append("</dl>");
 		}

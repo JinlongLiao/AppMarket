@@ -74,9 +74,9 @@ public class EditPro extends HttpServlet {
 			top = StringUtil.isEmptyOrEmptyStr(request.getParameter("top")) ? "TB_GOODS" : "TB_GOODS_TOP";
 			String sql = "UPDATE " + top + " SET  "
 					+ "GOODS_NAME=?, GOODS_TYPE=?, GOODS_MIN_PRICE=?, GOODS_MAX_PRICE=?, "
-					+ "GOODS_DESC=?, GOODS_URL=?, GOODS_IMG=?" + " WHERE (GOODS_ID=?)";
+					+ "GOODS_DESC=?, GOODS_URL=?, GOODS_IMG=?, GOODS_BFB=? " + " WHERE (GOODS_ID=?)";
 			String pname = null, pdesc = null, pmax = null, pmin = null, purl = null, ptype = null, pid = null,
-					pimg = null;
+					pimg = null,pbfb = null;
 
 			if (ServletFileUpload.isMultipartContent(request)) {
 				try {
@@ -114,6 +114,8 @@ public class EditPro extends HttpServlet {
 								ptype = fileItem.getString("utf-8");
 							} else if (name.equals("pid")) {
 								pid = fileItem.getString("utf-8");
+							} else if (name.equals("pbfb")) {
+								pbfb = fileItem.getString("utf-8");
 							}
 							String value = fileItem.getString("utf-8");// name对应的value值
 							logger.debug(name + " = " + value);
@@ -159,9 +161,9 @@ public class EditPro extends HttpServlet {
 			}
 			if (StringUtil.isEmptyOrEmptyStr(pimg)) {
 				sql = "UPDATE " + top + " SET  " + "GOODS_NAME=?, GOODS_TYPE=?, GOODS_MIN_PRICE=?, GOODS_MAX_PRICE=?, "
-						+ "GOODS_DESC=?, GOODS_URL=? WHERE (GOODS_ID=?)";
+						+ "GOODS_DESC=?, GOODS_URL=?, GOODS_BFB=? WHERE (GOODS_ID=?)";
 				try {
-					DatabaseHelper.execUpdate(sql, new Object[] { pname, ptype, pmin, pmax, pdesc, purl, pid });
+					DatabaseHelper.execUpdate(sql, new Object[] { pname, ptype, pmin, pmax, pdesc, purl, pbfb, pid, });
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					logger.error("更新错误", e);
@@ -170,7 +172,7 @@ public class EditPro extends HttpServlet {
 				return;
 			}
 			try {
-				DatabaseHelper.execUpdate(sql, new Object[] { pname, ptype, pmin, pmax, pdesc, purl, pimg, pid });
+				DatabaseHelper.execUpdate(sql, new Object[] { pname, ptype, pmin, pmax, pdesc, purl, pimg, pbfb, pid });
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				logger.error("更新错误", e);

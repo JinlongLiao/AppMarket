@@ -100,7 +100,13 @@
 						value="${user.GOODS_MAX_PRICE}" />
 				</div>
 			</div>
-
+			<div class="form-group">
+				<label for="bfb" class="col-sm-2 control-label">发款百分百：</label>
+				<div class="col-sm-offset-2 col-sm-5">
+					<input type="number" name='pbfb' max="100" min="1"
+						required="required" class="form-control" id='bfb' value="${user.GOODS_BFB}" />
+				</div>
+			</div>
 			<div class="form-group">
 				<div class="col-sm-offset-5 col-sm-5">
 					<button type="submit" class="btn btn-info">修改</button>

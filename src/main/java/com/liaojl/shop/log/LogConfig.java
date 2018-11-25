@@ -18,6 +18,7 @@ public class LogConfig implements Serializable {
 	public static boolean localname;
 	public static boolean userlog;
 	public static String homeurl;
+	public static int  basesize;
 	private static Properties properties;
 	static {
 		init();
@@ -28,6 +29,7 @@ public class LogConfig implements Serializable {
 		properties = ReadConfig.getPropertyByName("sysconf.properties");
 		localname = Boolean.parseBoolean(properties.getProperty("localname"));
 		userlog = Boolean.parseBoolean(properties.getProperty("userlog"));
+		basesize = Integer.parseInt(properties.getProperty("basesize"));
 		homeurl = (properties.getProperty("homeurl"));
 	}
 

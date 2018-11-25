@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.liaojl.shop.log.LogConfig;
 import com.liaojl.shop.url.UrlEnum;
 import com.liaojl.shop.utils.DatabaseHelper;
 import com.liaojl.shop.utils.FileMove;
@@ -46,6 +47,7 @@ public class Index extends HttpServlet {
 			if (!FileMove.IsExists(String.valueOf(map.get("GOODS_IMG")))) {
 				map.replace("GOODS_IMG", "default.jpg");
 			}
+			map.put("GOODS_SEE", (long)(map.getOrDefault("GOODS_SEE",0))+LogConfig.basesize);
 		}
 		request.setAttribute("tops", tops);
 		request.setAttribute("goods", goods);
