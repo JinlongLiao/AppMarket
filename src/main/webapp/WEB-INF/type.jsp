@@ -17,6 +17,13 @@
 <meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport"
+	content="width=320.1,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+<meta name="apple-mobile-web-app-title" content="yeziyuan" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="full-screen" content="yes" />
+<meta name="x5-fullscreen" content="true" />
 <title>全部分类</title>
 <link href="<%=basePath%>/css/amazeui.css" rel="stylesheet"
 	type="text/css" />
@@ -32,7 +39,13 @@
 	margin-top: 0px;
     margin-bottom: 52px;
 }
-
+p {
+	height: 14px;
+	line-height: 14px;
+	word-break: break-all;
+	overflow: hidden;
+	color: #999;
+}
 .brand-side {
 	position: relative;
 	margin-top: 0px;

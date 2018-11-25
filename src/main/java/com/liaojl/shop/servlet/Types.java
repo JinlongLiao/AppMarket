@@ -79,10 +79,10 @@ public class Types extends HttpServlet {
 				html.append("<dd> <img onclick=\"doUrl('" + basePath + "/index/DoLog','" + map.get("GOODS_URL") + "','"
 						+ map.get("GOODS_ID") + "')\" style='height: 100%' src='" + basePath + "/upload/"
 						+ map.get("GOODS_IMG") + "'>" + "</img> <a title='" + map.get("GOODS_NAME")
-						+ "' href=''><span><p>" + map.get("GOODS_NAME") + "</p>	<p>" + map.get("GOODS_MIN_PRICE") + "-"
-						+ map.get("GOODS_MAX_PRICE") + "</p><p><span>"
+						+ "' href=''><span><p style=\"color: #5b9df1;\">" + map.get("GOODS_NAME") + "</p>	<p style=\" color: #ff9f03\">" + map.get("GOODS_MIN_PRICE") + "-"
+						+ map.get("GOODS_MAX_PRICE") + "</p><p><span style=\"color: #e02431\">"
 						+ ((long)map.getOrDefault("GOODS_SEE", 0) + LogConfig.basesize)
-						+ "</span>人申请</p></span><span>放款率："+map.getOrDefault("GOODS_BFB",100)+"%</span></a></dd>");
+						+ "</span>人申请</p></span><span style=\"color: #FF6600\">放款率："+map.getOrDefault("GOODS_BFB",100)+"%</span></a></dd>");
 			}
 			html.append("</dl>");
 		}

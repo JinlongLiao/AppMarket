@@ -14,8 +14,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<title>首页</title>
+<meta name="viewport"
+	content="width=320.1,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+<meta name="apple-mobile-web-app-title" content="yeziyuan" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta content="telephone=no" name="format-detection" />
+<meta name="full-screen" content="yes" />
+<meta name="x5-fullscreen" content="true" />
+<meta name="keywords" content="daikuang,dk,贷款,贷款超市,daichao,贷超">
+<meta name="description" content="聚睿钱包提供小额贷款平台，贷款超市,daikuang,贷超">
+<title>聚睿钱包</title>
 
 <link href="<%=basePath%>/css/amazeui.css" rel="stylesheet"
 	type="text/css" />
@@ -35,6 +43,15 @@
 .activity .info {
 	margin-top: 5px;
 	text-align: center;
+	color: #999;
+}
+
+p {
+	height: 14px;
+	line-height: 14px;
+	word-break: break-all;
+	overflow: hidden;
+	color: #999;
 }
 
 .news {
@@ -81,7 +98,7 @@
 	position: absolute;
 	width: 0;
 	height: 0;
-/* 	border-top: 20px solid #0087e5;
+	/* 	border-top: 20px solid #0087e5;
 	border-right: 30px solid transparent; */
 	border-top: 0 solid #0087e5;
 	border-right: 0 solid transparent;
@@ -146,13 +163,13 @@
 								<img src="<%=basePath%>/upload/${item. GOODS_IMG}"></img>
 							</div>
 							<div class="info ">
-								<p style="font-size: 10px;">${item. GOODS_NAME}</p>
-								<p style="font-size: 10px;">${item. GOODS_MIN_PRICE}-${item. GOODS_MAX_PRICE}</p>
+								<p style="font-size: 12px;color: #5b9df1;">${item. GOODS_NAME}</p>
+								<p style="font-size: 10px; color: #ff9f03">${item. GOODS_MIN_PRICE}-${item. GOODS_MAX_PRICE}</p>
 								<p>
-									<span style="font-size: 8px;">${item. GOODS_SEE}</span>人申请
+									<span style="font-size: 8px;color: #e02431">${item. GOODS_SEE}</span>人申请
 								</p>
 										<p>放款率：
-									<span style="font-size: 8px;">${item. GOODS_BFB}%</span>
+									<span style="font-size: 8px;color: #FF6600">${item. GOODS_BFB}%</span>
 								</p>
 							</div>
 						</div>

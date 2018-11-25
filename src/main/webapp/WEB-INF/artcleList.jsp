@@ -13,8 +13,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<title>文章页面</title>
+<meta name="keywords" content="daikuang,dk,贷款,贷款超市,daichao,贷超">
+<meta name="description" content="聚睿钱包提供小额贷款平台，贷款超市,daikuang,贷超">
+<title>聚睿钱包明星产品</title>
 
 <link href="<%=basePath%>/css/amazeui.css" rel="stylesheet"
 	type="text/css" />

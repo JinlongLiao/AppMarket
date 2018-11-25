@@ -1,6 +1,10 @@
 var flag = true;
 // 执行操作
 function addType(srcurl, cwdurl) {
+	if($('#input').val()==''){
+		alert('输入不能为空');
+		return;
+		}
 	if (flag) {
 		flag = false;
 		$.ajax({
@@ -35,8 +39,10 @@ function addType(srcurl, cwdurl) {
 var flag2 = true;
 //执行操作
 function upDateType(srcurl, cwdurl) {
-	console.log($('#myid').text());
-	if (flag) {
+	if($('#input').val()==''){
+		alert('更新内容不能为空');
+		return;
+		}	if (flag) {
 		flag = false;
 		$.ajax({
 			url : srcurl,
