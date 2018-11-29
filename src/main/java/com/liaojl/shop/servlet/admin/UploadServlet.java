@@ -72,7 +72,7 @@ public class UploadServlet extends HttpServlet {
 						System.out.println("新文件名：" + newFileName);// image\1478509873038.jpg
 						// 5. 调用FileItem的write()方法，写入文件
 						File file = new File("D:/lindaProjects/mySpace/wendao/WebContent/touxiang/" + newFileName);
-						System.out.println(file.getAbsolutePath());
+//						System.out.println(file.getAbsolutePath());
 						fileItem.write(file);
 						// 6. 调用FileItem的delete()方法，删除临时文件
 						fileItem.delete();

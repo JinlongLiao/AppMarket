@@ -1,3 +1,4 @@
+<%@page import="com.liaojl.shop.servlet.admin.config.IndexInfo"%>
 <%@page import="com.liaojl.shop.log.LogConfig"%>
 <%@page import="com.liaojl.shop.url.UrlEnum"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -139,10 +140,20 @@ p {
 				<div class='news am-icon-fire'>温馨提示</div>
 				<div class='show-content'>
 					<ul id="box">
-						<li style="font-size: 14px;color: red">任何需要收费的项目都不要购买！！！</li>
+						<!-- <li style="font-size: 14px;color: red">任何需要收费的项目都不要购买！！！</li>
 						<li style="font-size: 14px; display: none;color: red">最新贷款平台每天实时更新，广大客户放心使用</li>
 						<li style="font-size: 14px; display: none;color: red">任何需要收费的项目都不要购买！！！</li>
-						<li style="font-size: 14px; display: none;color: red">最新贷款平台每天实时更新，广大客户放心使用</li>
+						<li style="font-size: 14px; display: none;color: red">最新贷款平台每天实时更新，广大客户放心使用</li> -->
+						<%
+						
+						for(int i=0;i<IndexInfo.infos.size();i++){
+							if(i==0){
+								out.print("<li style='font-size: 14px;color: red'>"+IndexInfo.infos.get(i)+"</li>");
+							}else{
+								out.print("<li style='font-size: 14px;display: none;color: red'>"+IndexInfo.infos.get(i)+"</li>");
+							}
+						}
+						%>
 					</ul>
 				</div>
 			</div>
