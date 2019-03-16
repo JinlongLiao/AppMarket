@@ -1,7 +1,6 @@
 package com.liaojl.shop.servlet.admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -9,7 +8,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
-import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +22,6 @@ import com.liaojl.shop.log.LogConfig;
 import com.liaojl.shop.url.UrlEnum;
 import com.liaojl.shop.utils.DatabaseHelper;
 import com.liaojl.shop.utils.StringUtil;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 
 /**
  * Servlet implementation class SubNet
@@ -77,10 +74,9 @@ public class SubNet extends HttpServlet {
 			} else {
 				String gid = String.valueOf(srcUrlMap.get(0).get("GOODS_ID"));
 				String gName = String.valueOf(srcUrlMap.get(0).get("GOODS_NAME"));
-				String basePath = "http://" + LogConfig.homeurl + ":" + request.getLocalPort()
-						+ request.getContextPath() + "/";
+				String basePath = "http://" + LogConfig.homeurl ;
 				if (request.getLocalPort() == 80) {
-					basePath = "http://" + LogConfig.homeurl + request.getContextPath() + "/";
+					basePath = "http://" + LogConfig.homeurl+"/";
 				}
 				Connection conn = DatabaseHelper.getConnection();
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");

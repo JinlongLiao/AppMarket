@@ -4,8 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String basePath = "http://" +  LogConfig.homeurl + ":" + request.getLocalPort()
-			+ request.getContextPath();
+	String basePath = "http://" +  LogConfig.homeurl ;
 %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
@@ -23,8 +22,8 @@
 <meta name="full-screen" content="yes" />
 <meta name="x5-fullscreen" content="true" />
 <meta name="keywords" content="daikuang,dk,贷款,贷款超市,daichao,贷超">
-<meta name="description" content="聚睿钱包提供小额贷款平台，贷款超市,daikuang,贷超">
-<title>聚睿钱包</title>
+<meta name="description" content="<%=session.getAttribute("sysname") %>提供小额贷款平台，贷款超市,daikuang,贷超">
+<title><%=session.getAttribute("sysname") %></title>
 
 <link href="<%=basePath%>/css/amazeui.css" rel="stylesheet"
 	type="text/css" />

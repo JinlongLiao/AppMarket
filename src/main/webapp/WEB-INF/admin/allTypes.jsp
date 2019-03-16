@@ -4,8 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String basePath = "http://" +  LogConfig.homeurl + ":" + request.getLocalPort()
-			+ request.getContextPath();
+	String basePath = "http://" +  LogConfig.homeurl;
 %>
 <jsp:include page="common.jsp"></jsp:include>
 ${scritp}

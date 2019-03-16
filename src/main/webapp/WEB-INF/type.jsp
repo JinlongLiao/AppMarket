@@ -7,8 +7,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
-	String basePath = "http://" +  LogConfig.homeurl + ":" + request.getLocalPort()
-			+ request.getContextPath();
+	String basePath = "http://" + LogConfig.homeurl ;
 %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +23,9 @@
 <meta content="telephone=no" name="format-detection" />
 <meta name="full-screen" content="yes" />
 <meta name="x5-fullscreen" content="true" />
-<title>全部分类</title>
+<meta name="description"
+	content="<%=session.getAttribute("sysname")%>提供小额贷款平台，贷款超市,daikuang,贷超">
+<title><%=session.getAttribute("sysname")%></title>
 <link href="<%=basePath%>/css/amazeui.css" rel="stylesheet"
 	type="text/css" />
 <link href="<%=basePath%>/basic/css/demo.css" rel="stylesheet"
@@ -37,8 +38,9 @@
 <style>
 #nav {
 	margin-top: 0px;
-    margin-bottom: 52px;
+	margin-bottom: 52px;
 }
+
 p {
 	height: 14px;
 	line-height: 14px;
@@ -46,6 +48,7 @@ p {
 	overflow: hidden;
 	color: #999;
 }
+
 .brand-side {
 	position: relative;
 	margin-top: 0px;
@@ -101,10 +104,14 @@ p {
 									<dl class="dl-sort" id='box'>
 										<c:forEach items="${tops}" var="item" varStatus="status">
 											<c:if test="${status.index==0}">
-												<img onclick="doUrl('<%=basePath%>/index/DoLog?top=true','${item. GOODS_URL}','${item. GOODS_ID}')" src="<%=basePath%>/upload/${item. GOODS_IMG}" />
+												<img
+													onclick="doUrl('<%=basePath%>/index/DoLog?top=true','${item. GOODS_URL}','${item. GOODS_ID}')"
+													src="<%=basePath%>/upload/${item. GOODS_IMG}" />
 											</c:if>
 											<c:if test="${status.index !=0}">
-												<img onclick="doUrl('<%=basePath%>/index/DoLog?top=true','${item. GOODS_URL}','${item. GOODS_ID}')" src="<%=basePath%>/upload/${item. GOODS_IMG}"
+												<img
+													onclick="doUrl('<%=basePath%>/index/DoLog?top=true','${item. GOODS_URL}','${item. GOODS_ID}')"
+													src="<%=basePath%>/upload/${item. GOODS_IMG}"
 													style="display: none;" />
 											</c:if>
 										</c:forEach>
@@ -193,7 +200,7 @@ p {
 					<p class='am-icon-money'>理财资讯</p>
 				</div> --%>
 
-	<div class="clear"></div>
+				<div class="clear"></div>
 
 				<div class="quick_toggle ">
 					<li class="qtitem "><a href="# "><span class="kfzx "></span></a>

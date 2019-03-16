@@ -75,8 +75,7 @@ public class adminLogin extends HttpServlet {
 				admin.setId(lists.get(0).get("ADMIN_ID"));
 				request.getSession().setAttribute(Constant.SESSION.getName(), admin);
 //				request.getRequestDispatcher(UrlEnum.ADMINMAIN.getDesc()).forward(request, response);
-				response.sendRedirect("http://" + LogConfig.homeurl + ":" + request.getLocalPort()
-						+ request.getContextPath() + UrlEnum.ADMIN.getDesc());
+				response.sendRedirect("http://" + LogConfig.homeurl + UrlEnum.ADMIN.getDesc());
 				return;
 			}
 

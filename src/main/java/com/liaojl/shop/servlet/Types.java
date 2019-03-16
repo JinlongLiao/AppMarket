@@ -50,7 +50,7 @@ public class Types extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String basePath = "http://" + LogConfig.homeurl + ":" + request.getLocalPort() + request.getContextPath();
+		String basePath = "http://" + LogConfig.homeurl ;
 
 		List<Map<String, Object>> tops = DatabaseHelper.execQuery("SELECT * FROM VW_ALL_GOODS_TOP WHERE GOOS_STATU =1 ",
 				null);
